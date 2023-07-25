@@ -99,23 +99,23 @@ body {
 			class="collapse d-lg-block sidebar collapse bg-white">
 			<div class="position-sticky">
 				<div class="list-group list-group-flush mx-3 mt-4">
-					<a href="/stock/login/kospi&exchange"
+					<a href="/rainbowcompany/login/kospi&exchange"
 						class="list-group-item list-group-item-action py-2 ripple"
 						aria-current="true"> <i class="fa-solid fa-won-sign me-3"></i><span>코스피,
 							환율</span>
-					</a> <a href="/stock/login/stockchart"
+					</a> <a href="/rainbowcompany/login/stockchart"
 						class="list-group-item list-group-item-action py-2 ripple"> <i
 						class="fa-solid fa-chart-column me-3"></i><span>종목 차트</span>
-					</a> <a href="/stock/login/accountinfo"
+					</a> <a href="/rainbowcompany/login/accountinfo"
 						class="list-group-item list-group-item-action py-2 ripple"> <i
 						class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
-					</a><a href="/stock/login/profit&losschart"
+					</a><a href="/rainbowcompany/login/profit&losschart"
 						class="list-group-item list-group-item-action py-2 ripple"><i
 						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a> <a
-						href="/stock/login/news"
+						href="/rainbowcompany/login/news"
 						class="list-group-item list-group-item-action py-2 ripple active"><i
 						class="fa-solid fa-newspaper fa-fw me-3"></i><span>주요 종목 뉴스</span></a>
-					<a href="/stock/login/siteintroduce"
+					<a href="/rainbowcompany/login/siteintroduce"
 						class="list-group-item list-group-item-action py-2 ripple"><i
 						class="fa-solid fa-building fa-fw me-3"></i><span>소개</span></a>
 				</div>
@@ -174,7 +174,7 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">이마트 뉴스</strong>
+							<strong id="title">신세계 푸드 뉴스</strong>
 						</h5>
 					</div>
 					<div class="card-body">
@@ -212,7 +212,7 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">신세계 푸드 뉴스</strong>
+							<strong id="title">이마트 뉴스</strong>
 						</h5>
 					</div>
 					<div class="card-body">
@@ -224,21 +224,21 @@ body {
 								<table id="Transaction_details2" class="display">
 									<thead>
 										<tr>
+											<th>뉴스번호</th>
 											<th>날짜</th>
 											<th>제목</th>
-											<th>내용</th>
-											<th>긍부정결과</th>
+											<th>긍정 부정뉴스 구분</th>
 										</tr>
 									</thead>
 									<tbody>
-									<%-- <c:forEach var="" items="" varStatus="status"> --%>
+									 <c:forEach var="emart" items="${emartNews}" varStatus="status"> 
 										<tr>
-											<td>2023-04-25</td>
-											<td>신세계</td>
-											<td>7</td>
-											<td>61</td>
+											<td>${emart.emartnum}</td>
+											<td>${emart.emartdate}</td>
+											<td><a href="/rainbowcompany/${emart.emartnum}">${emart.emarttitle}</a></td>
+											<td>${emart.emartpn}</td>
 										</tr>
-										<%-- </c:forEach> --%>
+										 </c:forEach>
 									</tbody>
 								</table>
 							</div>

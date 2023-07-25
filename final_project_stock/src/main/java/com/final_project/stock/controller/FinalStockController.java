@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,10 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.final_project.stock.dao.AccountInfoDao;
+import com.final_project.stock.dao.NewsDao;
 import com.final_project.stock.dao.StockPriceDao;
 import com.final_project.stock.dao.TradeHistoryDao;
 import com.final_project.stock.dao.UserTableDao;
 import com.final_project.stock.dto.AccountInfoDto;
+import com.final_project.stock.dto.EmartNewsDto;
 import com.final_project.stock.dto.StockPriceEmartDto;
 import com.final_project.stock.dto.StockPriceShinDto;
 import com.final_project.stock.dto.StockPriceShinFood;
@@ -34,7 +37,7 @@ import com.final_project.stock.service.UserTableService;
 
 
 @Controller
-@RequestMapping("/stock")
+@RequestMapping("/rainbowcompany")
 public class FinalStockController {
 	
 	UserTableDao usertableDao;
@@ -119,7 +122,14 @@ public class FinalStockController {
 	}
 	
 	@GetMapping("/login/news")
-	public String main_news_info() {
+	public String main_news_info(Model model) {
+		NewsDao newsDao = new NewsDao();
+		try {
+			ArrayList<EmartNewsDto> emartNewsList = newsDao.EmartNews();
+			model.addAttribute("emartNews", emartNewsList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "main_news_info";
 	}
 	
@@ -136,6 +146,22 @@ public class FinalStockController {
 	@GetMapping("/signup")
 	public String signup() {
 		return "signup";
+	}
+	@GetMapping("/test")
+	public String test() {
+		return "test";
+	}
+	
+	@GetMapping("/{emartnum}")
+	public String getEmartNews(@PathVariable int emartnum, Model model) {
+		NewsDao newsDao = new NewsDao();
+		try {
+			EmartNewsDto selectnews = newsDao.getEmartNews(emartnum);
+			model.addAttribute("emartNews", selectnews);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "newsdetails";
 	}
 	
 	
@@ -158,7 +184,7 @@ public class FinalStockController {
 			red.addFlashAttribute("msg", "<script>alert('회원가입에 실패하셨습니다. 다시 회원가입해주세요');</script>");
 		}
 
-		return "redirect:/stock/signin";
+		return "redirect:/rainbowcompany/signin";
 	}
 	
 	@ResponseBody
@@ -197,14 +223,14 @@ public class FinalStockController {
 				red.addFlashAttribute("msg", "<script>alert('로그인에 성공하셨습니다.');</script>");
 			} else {
 				red.addFlashAttribute("msg", "<script>alert('로그인에 실패하셨습니다. 다시 로그인해주세요');</script>");
-				return "redirect:/stock/signin";
+				return "redirect:/rainbowcompany/signin";
 			}
 		} catch (Exception e) {
 			// 2.2 비정상처리 => 화면에 비정상처리 경고메세지보내야함
 			e.printStackTrace();
 			model.addAttribute("error", "로그인이 정상적으로되지 않았습니다.");
 		}
-		return "redirect:/stock/login/kospi&exchange";
+		return "redirect:/rainbowcompany/login/kospi&exchange";
 
 	}
 	
@@ -212,7 +238,7 @@ public class FinalStockController {
 	public String removesession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("userid");
-		return "redirect:/stock/main";
+		return "redirect:/rainbowcompany/main";
 	}
 	
 

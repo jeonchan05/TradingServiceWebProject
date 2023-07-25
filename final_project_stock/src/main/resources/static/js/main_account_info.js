@@ -23,8 +23,8 @@ stompClient.connect({}, function(frame) {
 	});
 	
 	stompClient.subscribe('/stock/garate', function(message) {
-		const data = JSON.parse(message.body);
-		document.getElementById('garate').innerText = data.substr(0,7);
+		const data = message.body;
+		document.getElementById('garate').innerText = data;
 	});
 	
 });

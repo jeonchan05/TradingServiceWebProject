@@ -83,9 +83,9 @@
           <div class="text-white">
             <h1 class="mb-3" id="korean">사이트를 이용하시려면</h1>
             <h5 class="mb-4"></h5>
-            <a class="btn btn-outline-light btn-lg m-2" id="korean" href="/stock/signin" role="button"
+            <a class="btn btn-outline-light btn-lg m-2" id="korean" href="/rainbowcompany/signin" role="button"
               rel="nofollow" target="_blank">로그인</a>
-            <a class="btn btn-outline-light btn-lg m-2" id="korean" href="/stock/signup" target="_blank"
+            <a class="btn btn-outline-light btn-lg m-2" id="korean" href="/rainbowcompany/signup" target="_blank"
               role="button">회원가입</a>
           </div>
         </div>

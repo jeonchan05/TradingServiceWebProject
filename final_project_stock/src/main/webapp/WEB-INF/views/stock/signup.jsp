@@ -70,7 +70,7 @@
 				<div class="row d-flex justify-content-center">
 					<div class="col-lg-8">
 						<h2 class="fw-bold mb-5">회원 가입</h2>
-						<form method="post" action="/stock/up"
+						<form method="post" action="/rainbowcompany/up"
 							enctype="multipart/form-data">
 
 							<div class="mb-4 text-left">
@@ -114,7 +114,7 @@
 							<!-- Submit button -->
 							<button type="submit" class="btn btn-primary btn-block mb-4">가입하기</button>
 							<p>
-								이미 계정이 있으십니까? <a href="/stock/signin">로그인하기</a>
+								이미 계정이 있으십니까? <a href="/rainbowcompany/signin">로그인하기</a>
 							</p>
 						</form>
 					</div>
@@ -139,7 +139,7 @@
 	<script type="text/javascript">
 		function checkId(userid) {
 			$.ajax({
-				url : '/stock/idcheck',
+				url : '/rainbowcompany/idcheck',
 				type : 'post',
 				data : {
 					userid : userid

@@ -35,7 +35,7 @@
 				<div class="row d-flex justify-content-center">
 					<div class="col-lg-8">
 						<h2 class="fw-bold mb-5">로그인</h2>
-						<form method="post" action="/stock/in">
+						<form method="post" action="/rainbowcompany/in">
 							<!-- Email input -->
 							<div class="form-outline mb-4">
 								<input type="text" name="userid" id="form3Example3"
@@ -65,7 +65,7 @@
 								로그인</button>
 							<div class="text-center">
 								<p>
-									회원이 아니십니까? <a href="/stock/signup">계정 만들기</a>
+									회원이 아니십니까? <a href="/rainbowcompany/signup">계정 만들기</a>
 								</p>
 							</div>
 						</form>

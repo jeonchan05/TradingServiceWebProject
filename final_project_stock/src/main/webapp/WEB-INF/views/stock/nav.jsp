@@ -57,7 +57,7 @@ margin-left: 21%;
 <body>
 	<nav id="main-navbar"
 		class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-		<a href="/stock/login/kospi&exchange"><img src="/images/mainlogo.png"
+		<a href="/rainbowcompany/login/kospi&exchange"><img src="/images/mainlogo.png"
 				class="mainlogo" width="160px" height="60px" alt="rainbow" /></a>
 		<!-- Container wrapper -->
 		<div class="container-fluid">
@@ -70,7 +70,7 @@ margin-left: 21%;
 			</button>
 
 			<!-- Brand -->
-			<a class="navbar-brand" href="/stock/login/kospi&exchange"> <!-- <img
+			<a class="navbar-brand" href="/rainbowcompany/login/kospi&exchange"> <!-- <img
 				src="/images/mainlogo5.jpg" height="40"  alt="rainbow" loading="lazy" /> -->
 				<!-- <strong id="main">RAINBOW COMPANY</strong> -->
 			</a>
@@ -96,9 +96,9 @@ margin-left: 21%;
 					<ul class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarDropdownMenuLink">
 						<li><a class="dropdown-item">${username}</a></li>
-						<li><a class="dropdown-item" href="/stock/login/accountinfo">내
+						<li><a class="dropdown-item" href="/rainbowcompany/login/accountinfo">내
 								계좌정보</a></li>
-						<li><a class="dropdown-item" href="/stock/removesession">로그아웃</a>
+						<li><a class="dropdown-item" href="/rainbowcompany/removesession">로그아웃</a>
 						</li>
 					</ul></li>
 			</ul>

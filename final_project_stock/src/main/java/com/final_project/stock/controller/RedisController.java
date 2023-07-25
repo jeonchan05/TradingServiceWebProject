@@ -52,6 +52,19 @@ public class RedisController {
         String valgalo = "valgalo";
         String garate = "garate";
         
+        String datetime = "datetime";
+        String odrnum = "odrnum";
+        String stcode = "stcode";
+        String stname = "stname";
+        String odrqty = "odrqty";
+        String trallqty = "trallqty";
+        String trqty = "trqty";
+        String trprice = "trprice";
+        String odrgubun = "odrgubun";
+        String trgubun = "trgubun";
+        
+        String test = "my_channel";
+        
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(kospivaluechannel));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(kospidatechannel));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(exchangeusdchannel));
@@ -77,6 +90,20 @@ public class RedisController {
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(avalpri));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(valgalo));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(garate));
+        
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(datetime));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrnum));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(stcode));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(stname));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrqty));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trallqty));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trqty));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trprice));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrgubun));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trgubun));
+        
+        
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(test));
     }
 }
 
