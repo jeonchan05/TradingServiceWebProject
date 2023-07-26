@@ -22,6 +22,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="/js/predict.js"></script>
 <style type="text/css">
+h2,h4{
+font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
 body {
 	background-color: #fbfbfb;
 }
@@ -65,7 +68,7 @@ body {
 	overflow-y: auto;
 }
 </style>
-<title>손익 차트</title>
+<title>AI 추천 투자 차트</title>
 </head>
 <body>
 	<!--Main Navigation-->
@@ -181,6 +184,42 @@ body {
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</section>
+			<section class="mb-4">
+				<div class="card">
+					<div class="card-header text-center py-3">
+						<h5 class="mb-0 text-center">
+							<strong id="title">AI 거래 신세계 차트</strong>
+						</h5>
+					</div>
+					<div class="card-body">
+						
+					</div>
+				</div>
+			</section>
+			<section class="mb-4">
+				<div class="card">
+					<div class="card-header text-center py-3">
+						<h5 class="mb-0 text-center">
+							<strong id="title">AI 거래 신세계 푸드 차트</strong>
+						</h5>
+					</div>
+					<div class="card-body">
+						
+					</div>
+				</div>
+			</section>
+			<section class="mb-4">
+				<div class="card">
+					<div class="card-header text-center py-3">
+						<h5 class="mb-0 text-center">
+							<strong id="title">AI 거래 이마트 차트</strong>
+						</h5>
+					</div>
+					<div class="card-body">
+						
 					</div>
 				</div>
 			</section>

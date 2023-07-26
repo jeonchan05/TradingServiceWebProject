@@ -82,8 +82,8 @@ body {
 						class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
 					</a><a href="/rainbowcompany/login/profit&losschart"
 						class="list-group-item list-group-item-action py-2 ripple"><i
-						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a> <a
-						href="/rainbowcompany/login/news"
+						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a>
+					<a href="/rainbowcompany/login/news"
 						class="list-group-item list-group-item-action py-2 ripple"><i
 						class="fa-solid fa-newspaper fa-fw me-3"></i><span>주요 종목 뉴스</span></a>
 					<a href="/rainbowcompany/login/siteintroduce"
@@ -101,9 +101,38 @@ body {
 	<!--Main Navigation-->
 
 	<!--Main layout-->
+	<
 	<main style="margin-top: 58px;">
-		<div class="container pt-4"></div>
+		<div class="container pt-4">
+			<div class="col-3xl-6 col-md-12 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<div class="d-flex justify-content-between p-md-1">
+							<div class="d-flex flex-row">
+								<div class="align-self-center">
+									<h2 class="h5 mb-0 me-4">
+										<a class="text-reset fw-bold">회사 소개</a>
+									</h2>
+								</div>
+								<div>
+									<h4></h4>
+									<p class="mb-0"></p>
+								</div>
+							</div>
+							<div class="align-self-center"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="mb-4">
+				<div class="card">
+					<img alt="회사 소개" src="/images/companyintroduce.png"
+						class="companyintroduce">
+				</div>
+			</section>
+		</div>
 	</main>
+
 
 	<!--Main layout-->
 </body>

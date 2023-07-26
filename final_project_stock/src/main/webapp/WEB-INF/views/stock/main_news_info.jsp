@@ -35,6 +35,11 @@ body {
 	background-color: #fbfbfb;
 }
 
+.emartlogo {
+	margin-top: -10px;
+	width: 100px;
+}
+
 @media ( min-width : 991.98px) {
 	main {
 		padding-left: 240px;
@@ -111,8 +116,8 @@ body {
 						class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
 					</a><a href="/rainbowcompany/login/profit&losschart"
 						class="list-group-item list-group-item-action py-2 ripple"><i
-						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a> <a
-						href="/rainbowcompany/login/news"
+						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a>
+					<a href="/rainbowcompany/login/news"
 						class="list-group-item list-group-item-action py-2 ripple active"><i
 						class="fa-solid fa-newspaper fa-fw me-3"></i><span>주요 종목 뉴스</span></a>
 					<a href="/rainbowcompany/login/siteintroduce"
@@ -132,6 +137,45 @@ body {
 	<!--Main layout-->
 	<main style="margin-top: 58px;">
 		<div class="container pt-4">
+			<section class="mb-4">
+				<div class="card">
+					<div class="card-header text-center py-3">
+						<h5 class="mb-0 text-center">
+							<strong id="title">이마트 뉴스</strong> <img alt=""
+								src="/images/emartlogo.png" class="emartlogo">
+						</h5>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<!-- <button onClick="window.location.reload()" id="refresh">
+								<i class="fa-solid fa-rotate-right">매매내역 새로고침</i>
+							</button> -->
+							<div style="width: 1200px; margin: 40px auto 0">
+								<table id="Transaction_details2" class="display">
+									<thead>
+										<tr>
+											<th>뉴스번호</th>
+											<th>날짜</th>
+											<th>제목</th>
+											<th>긍정 부정뉴스 구분</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="emart" items="${emartNews}" varStatus="status">
+											<tr>
+												<td>${emart.emartnum}</td>
+												<td>${emart.emartdate}</td>
+												<td><a href="/rainbowcompany/login/${emart.emartnum}">${emart.emarttitle}</a></td>
+												<td>${emart.emartpn}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section class="mb-4">
 				<div class="card">
@@ -206,47 +250,6 @@ body {
 					</div>
 				</div>
 			</section>
-
-
-			<section class="mb-4">
-				<div class="card">
-					<div class="card-header text-center py-3">
-						<h5 class="mb-0 text-center">
-							<strong id="title">이마트 뉴스</strong>
-						</h5>
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<!-- <button onClick="window.location.reload()" id="refresh">
-								<i class="fa-solid fa-rotate-right">매매내역 새로고침</i>
-							</button> -->
-							<div style="width: 1200px; margin: 40px auto 0">
-								<table id="Transaction_details2" class="display">
-									<thead>
-										<tr>
-											<th>뉴스번호</th>
-											<th>날짜</th>
-											<th>제목</th>
-											<th>긍정 부정뉴스 구분</th>
-										</tr>
-									</thead>
-									<tbody>
-									 <c:forEach var="emart" items="${emartNews}" varStatus="status"> 
-										<tr>
-											<td>${emart.emartnum}</td>
-											<td>${emart.emartdate}</td>
-											<td><a href="/rainbowcompany/${emart.emartnum}">${emart.emarttitle}</a></td>
-											<td>${emart.emartpn}</td>
-										</tr>
-										 </c:forEach>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
 		</div>
 	</main>
 	<!--Main layout-->

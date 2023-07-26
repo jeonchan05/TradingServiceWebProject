@@ -152,7 +152,7 @@ public class FinalStockController {
 		return "test";
 	}
 	
-	@GetMapping("/{emartnum}")
+	@GetMapping("/login/{emartnum}")
 	public String getEmartNews(@PathVariable int emartnum, Model model) {
 		NewsDao newsDao = new NewsDao();
 		try {
@@ -161,7 +161,7 @@ public class FinalStockController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "newsdetails";
+		return "emartnewsdetails";
 	}
 	
 	
