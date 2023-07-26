@@ -19,13 +19,21 @@ stompClient.connect({}, function(frame) {
 
 	stompClient.subscribe('/stock/valgalo', function(message) {
 		const data = JSON.parse(message.body);
-		document.getElementById('valgalo').innerText = data;
+		const valgalo = parseFloat(data)
+		const valgalodiv = document.getElementById('valgalo');
+		if (valgalo < 0) {
+			document.getElementById('valgalo').innerText = valgalo;
+			valgalodiv.style.color = "blue";
+		} else {
+			document.getElementById('valgalo').innerText = valgalo;
+			valgalodiv.style.color = "red";
+		}
 	});
 
 	stompClient.subscribe('/stock/garate', function(message) {
 		const data = message.body;
 		const garate = parseFloat(data)
-		 const garatediv = document.getElementById('garate');
+		const garatediv = document.getElementById('garate');
 		if (garate < 0) {
 			document.getElementById('garate').innerText = garate + "%";
 			garatediv.style.color = "blue";
