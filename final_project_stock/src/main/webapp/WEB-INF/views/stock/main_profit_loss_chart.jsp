@@ -16,15 +16,25 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
 	rel="stylesheet" />
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="/js/predict.js"></script>
 <style type="text/css">
-h2,h4{
-font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+h2, h4 {
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
+
+#shinchart {
+	align-content: center;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
 body {
 	background-color: #fbfbfb;
 }
@@ -137,10 +147,10 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinpredict"></h2>
+											<h2 class="h1 mb-0 me-4" id="shinpredict">없음</h2>
 										</div>
 										<div>
-											<h4>신세계</h4>
+											<h4>신세계 예측</h4>
 											<p class="mb-0"></p>
 										</div>
 									</div>
@@ -155,10 +165,10 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinfoodpredict"></h2>
+											<h2 class="h1 mb-0 me-4" id="shinfoodpredict">없음</h2>
 										</div>
 										<div>
-											<h4>신세계푸드</h4>
+											<h4>신세계푸드 예측</h4>
 											<p class="mb-0"></p>
 										</div>
 									</div>
@@ -173,10 +183,10 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="emartpredict"></h2>
+											<h2 class="h1 mb-0 me-4" id="emartpredict">없음</h2>
 										</div>
 										<div>
-											<h4>이마트</h4>
+											<h4>이마트 예측</h4>
 											<p class="mb-0"></p>
 										</div>
 									</div>
@@ -191,11 +201,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">AI 거래 신세계 차트</strong>
+							<strong id="title">AI 자동 거래 신세계 Portfolio Value 차트</strong>
 						</h5>
 					</div>
 					<div class="card-body">
-						
+						<div id="shinchart" style="width: 1200px; height: 400px;"></div>
+						<script src="/js/shinchart.js"></script>
 					</div>
 				</div>
 			</section>
@@ -203,11 +214,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">AI 거래 신세계 푸드 차트</strong>
+							<strong id="title">AI 자동 거래 신세계푸드 Portfolio Value 차트</strong>
 						</h5>
 					</div>
 					<div class="card-body">
-						
+						<div id="shinfoodchart" style="width: 1200px; height: 400px;"></div>
+						<script src="/js/shinfoodchart.js"></script>
 					</div>
 				</div>
 			</section>
@@ -215,11 +227,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">AI 거래 이마트 차트</strong>
+							<strong id="title">AI 자동 거래 이마트 Portfolio Value 차트</strong>
 						</h5>
 					</div>
 					<div class="card-body">
-						
+						<div id="emartchart" style="width: 1200px; height: 400px;"></div>
+						<script src="/js/emartchart.js"></script>
 					</div>
 				</div>
 			</section>

@@ -188,7 +188,7 @@ body {
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="garate" style="color: red">${Garate}</p>
+											<p class="fw-normal mb-1" id="garate" style="color: blue">${Garate}</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 									</tr>

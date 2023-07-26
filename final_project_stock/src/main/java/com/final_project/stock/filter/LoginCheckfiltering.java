@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 
 
-@WebFilter("/stock/login/*")
+@WebFilter("/rainbowcompany/login/*")
 public class LoginCheckfiltering implements Filter {
     public LoginCheckfiltering() {
     	
@@ -31,7 +31,7 @@ public class LoginCheckfiltering implements Filter {
 		HttpSession session = req.getSession();
 		String logincheck = (String) session.getAttribute("userid");
 		if(logincheck == null) {
-			res.sendRedirect("/stock/main");
+			res.sendRedirect("/rainbowcompany/main");
 		}else {
 			
 		}

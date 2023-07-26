@@ -104,12 +104,11 @@ public class FinalStockController {
 			String avalpri = AccountInfo.getAvalpri();
 			String valgalo = AccountInfo.getValgalo();
 			String garate = AccountInfo.getGarate();
-			String garate1 = garate.substring(0,7);
 			model.addAttribute("Odrbqty", odrbqty);
 			model.addAttribute("Trbqty", trbqty);
 			model.addAttribute("Avalpri", avalpri);
 			model.addAttribute("Valgalo", valgalo);
-			model.addAttribute("Garate", garate1);
+			model.addAttribute("Garate", garate);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

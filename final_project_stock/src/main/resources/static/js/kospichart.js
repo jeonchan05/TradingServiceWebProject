@@ -38,7 +38,7 @@ const kospichart = Highcharts.chart('kospichart', {
       const y = parseFloat(kospidata);
  
       if (x && y) {
-        kospichart.series[0].addPoint({ name: x, y }, true, kospichart.series[0].data.length >= 60);
+        kospichart.series[0].addPoint({ name: x, y }, true, kospichart.series[0].data.length >= 100);
       }
     });
   });

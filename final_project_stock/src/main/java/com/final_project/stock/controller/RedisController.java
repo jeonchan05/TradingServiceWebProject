@@ -22,7 +22,7 @@ public class RedisController {
 		this.redisMessageListenerContainer = redisMessageListenerContainer;
 	}
 
-	@PostConstruct
+	@PostConstruct //Application 시작 전 실행하는 어노테이션
 	public void postConstruct() {
 		kospiandexchange();
 		Stock();
@@ -66,6 +66,10 @@ public class RedisController {
         String shinfoodchart ="031440pv";
         String emartchart ="139480pv";
         
+        String shincharttime = "004170timepv";
+        String shinfoodcharttime ="031440timepv";
+        String emartcharttime ="139480timepv";
+        
         
         
         
@@ -80,6 +84,10 @@ public class RedisController {
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinchart));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodchart));
         redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartchart));
+        
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shincharttime));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodcharttime));
+        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartcharttime));
 	}
 
 	public void AccountInfo() {

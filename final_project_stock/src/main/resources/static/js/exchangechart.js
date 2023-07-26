@@ -38,7 +38,7 @@ const exchangechart = Highcharts.chart('exchangechart', {
       const y = parseFloat(exchangeusd);
  
       if (x && y) {
-        exchangechart.series[0].addPoint({ name: x, y }, true, exchangechart.series[0].data.length >= 360);
+        exchangechart.series[0].addPoint({ name: x, y }, true, exchangechart.series[0].data.length >= 100);
       }
     });
   });
