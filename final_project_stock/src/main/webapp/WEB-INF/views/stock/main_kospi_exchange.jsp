@@ -35,10 +35,13 @@ h2, h4 {
 
 #kospichart {
 	margin: auto;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	
 }
 
 #exchangechart {
 	margin: auto;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
 canvas {
@@ -69,6 +72,9 @@ body {
 	width: 240px;
 	z-index: 600;
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+.imagemoney{
+margin-top: 13px;
 }
 
 @media ( max-width : 991.98px) {
@@ -167,7 +173,7 @@ body {
 										</div>
 									</div>
 									<div class="align-self-center"></div>
-									<img src="/images/won.png" height="45" alt="won" />
+									<img src="/images/won.png" height="45" alt="won" class="imagemoney"/>
 								</div>
 							</div>
 						</div>
@@ -187,7 +193,7 @@ body {
 										</div>
 									</div>
 									<div class="align-self-center"></div>
-									<img src="/images/cny.png" height="45" alt="cny" />
+									<img src="/images/cny.png" height="45" alt="cny" class="imagemoney"/>
 								</div>
 							</div>
 						</div>

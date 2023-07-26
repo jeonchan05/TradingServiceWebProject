@@ -9,7 +9,7 @@ stompClient.connect({}, function (frame) {
         const data = message.body;
         document.getElementById('shinfoodpredict').innerText = data + " 추천"; 
     });
-     stompClient.subscribe('/stock/031440action_channel', function (message) {
+     stompClient.subscribe('/stock/139480action_channel', function (message) {
         const data = message.body;
         document.getElementById('emartpredict').innerText = data + " 추천"; 
     });

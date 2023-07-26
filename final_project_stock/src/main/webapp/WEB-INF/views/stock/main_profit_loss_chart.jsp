@@ -197,7 +197,7 @@ body {
 					</div>
 				</div>
 			</section>
-			<section class="mb-4">
+			<!-- <section class="mb-4">
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
@@ -209,12 +209,12 @@ body {
 						<script src="/js/shinchart.js"></script>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<section class="mb-4">
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">AI 자동 거래 신세계푸드 Portfolio Value 차트</strong>
+							<strong id="title">AI 자동 거래 신세계,신세계 푸드,이마트 Portfolio Value 차트</strong>
 						</h5>
 					</div>
 					<div class="card-body">
@@ -223,7 +223,7 @@ body {
 					</div>
 				</div>
 			</section>
-			<section class="mb-4">
+			<!-- <section class="mb-4">
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
@@ -235,7 +235,7 @@ body {
 						<script src="/js/emartchart.js"></script>
 					</div>
 				</div>
-			</section>
+			</section> -->
 		</div>
 	</main>
 	<!--Main layout-->

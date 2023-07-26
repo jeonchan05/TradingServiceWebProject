@@ -37,7 +37,7 @@ footer {
       <div class="row mt-3">
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <a href="/stock/login/kospi&exchange"><img src="/images/4.png"
+          <a href="/rainbowcompany/login/kospi&exchange"><img src="/images/4.png"
 				width="80%" height="250px" alt="rainbow" id="footerlogo"/></a>
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
