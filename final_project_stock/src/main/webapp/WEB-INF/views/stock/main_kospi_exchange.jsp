@@ -164,7 +164,7 @@ margin-top: 13px;
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="exchangeusd">1289.2</h2>
+											<h2 class="h1 mb-0 me-4" id="exchangeusd">로딩중...</h2>
 										</div>
 										<div>
 											<h4>USD-KRW </h4>
@@ -184,7 +184,7 @@ margin-top: 13px;
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="exchangecny">179.23</h2>
+											<h2 class="h1 mb-0 me-4" id="exchangecny">로딩중...</h2>
 										</div>
 										<div>
 											<h4>USD-CNY</h4>
@@ -204,7 +204,7 @@ margin-top: 13px;
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="kospidata">2607.76</h2>
+											<h2 class="h1 mb-0 me-4" id="kospidata">로딩중...</h2>
 										</div>
 										<div>
 											<h4>KOSPI 코스피</h4>

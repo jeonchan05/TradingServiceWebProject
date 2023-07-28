@@ -2,85 +2,73 @@ package com.final_project.stock.dto;
 
 public class TradingHistoryDto {
 
-	private String datetime;
-	private String odrnum;
-	private String stcode;
-	private String stname;
-	private String odrqty;
-	private String trallqty;
-	private String trqty;
-	private String trprice;
-	private String odrgubun;
-	private String trgubun
+	private String ordertime;
+	private String excepttime;
+	private String ordernum;
+	private String stockname;
+	private String orderprice;
+	private String exceptprice;
+	private String exceptqty;
+	private String gubun;
 	
 	
-;
-	public String getdatetime() {
-		return datetime;
+	public String getOrdertime() {
+		return ordertime;
 	}
-	public void setdatetime(String datetime) {
-		this.datetime = datetime;
+	public void setOrdertime(String ordertime) {
+		this.ordertime = ordertime;
 	}
-	public String getOdrnum() {
-		return odrnum;
+	public String getExcepttime() {
+		return excepttime;
 	}
-	public void setOdrnum(String odrnum) {
-		this.odrnum = odrnum;
+	public void setExcepttime(String excepttime) {
+		this.excepttime = excepttime;
 	}
-	public String getStcode() {
-		return stcode;
+	public String getOrdernum() {
+		return ordernum;
 	}
-	public void setStcode(String stcode) {
-		this.stcode = stcode;
+	public void setOrdernum(String ordernum) {
+		this.ordernum = ordernum;
 	}
-	public String getStname() {
-		return stname;
+	public String getStockname() {
+		return stockname;
 	}
-	public void setStname(String stname) {
-		this.stname = stname;
+	public void setStockname(String stockname) {
+		this.stockname = stockname;
 	}
-	public String getOdrqty() {
-		return odrqty;
+	public String getOrderprice() {
+		return orderprice;
 	}
-	public void setOdrqty(String odrqty) {
-		this.odrqty = odrqty;
+	public void setOrderprice(String orderprice) {
+		this.orderprice = orderprice;
 	}
-	public String getTrallqty() {
-		return trallqty;
+	public String getExceptprice() {
+		return exceptprice;
 	}
-	public void setTrallqty(String tr_allqty) {
-		this.trallqty = tr_allqty;
+	public void setExceptprice(String exceptprice) {
+		this.exceptprice = exceptprice;
 	}
-	public String getTrqty() {
-		return trqty;
+	public String getExceptqty() {
+		return exceptqty;
 	}
-	public void setTrqty(String trqty) {
-		this.trqty = trqty;
+	public void setExceptqty(String exceptqty) {
+		this.exceptqty = exceptqty;
 	}
-	public String getTrprice() {
-		return trprice;
+	public String getGubun() {
+		return gubun;
 	}
-	public void setTrprice(String trprice) {
-		this.trprice = trprice;
-	}
-	public String getOdrgubun() {
-		return odrgubun;
-	}
-	public void setOdrgubun(String odrgubun) {
-		this.odrgubun = odrgubun;
-	}
-	public String getTrgubun() {
-		return trgubun;
-	}
-	public void setTrgubun(String trgubun) {
-		this.trgubun = trgubun;
+	public void setGubun(String gubun) {
+		this.gubun = gubun;
 	}
 	
 	@Override
 	public String toString() {
-		return "TradingHistoryDto [datetime=" + datetime + ", odrnum=" + odrnum + ", stcode=" + stcode + ", stname="
-				+ stname + ", odrqty=" + odrqty + ", trallqty=" + trallqty + ", trqty=" + trqty + ", trprice=" + trprice
-				+ ", odrgubun=" + odrgubun + ", trgubun=" + trgubun + "]";
+		return "TradingHistoryDto [ordertime=" + ordertime + ", excepttime=" + excepttime + ", ordernum=" + ordernum
+				+ ", stockname=" + stockname + ", orderprice=" + orderprice + ", exceptprice=" + exceptprice
+				+ ", exceptqty=" + exceptqty + ", gubun=" + gubun + "]";
 	}
+	
+	
+
 	
 }

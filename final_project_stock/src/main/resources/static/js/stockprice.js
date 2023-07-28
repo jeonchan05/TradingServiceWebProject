@@ -3,15 +3,21 @@ const stompClient = Stomp.over(socket);
 stompClient.connect({}, function (frame) {
     stompClient.subscribe('/stock/price_004170', function (message) {
         const data = JSON.parse(message.body);
-        document.getElementById('shinprice').innerText = data; 
+        const shin = parseInt(data)
+    	result = shin.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('shinprice').innerText = result; 
     });
     stompClient.subscribe('/stock/price_031440', function (message) {
         const data = message.body
-        document.getElementById('shinfoodprice').innerText = data.substr(0, 5);; 
+        const shinfood = parseInt(data)
+    	result = shinfood.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('shinfoodprice').innerText = result; 
     });
      stompClient.subscribe('/stock/price_139480', function (message) {
         const data = JSON.parse(message.body);
-        document.getElementById('emartprice').innerText = data; 
+        const emart = parseInt(data)
+     	result = emart.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('emartprice').innerText = result; 
     });
      
 });

@@ -33,11 +33,12 @@ public class AccountInfoDao {
 		ResultSet rs = pstmt.executeQuery();
 		try (conn; pstmt; rs) {
 			if (rs.next()) {
-				accountInfo.setOdrbqty(rs.getString("odrbqty"));
-				accountInfo.setTrbqty(rs.getString("trbqty"));
-				accountInfo.setAvalpri(rs.getString("avalpri"));
-				accountInfo.setValgalo(rs.getString("valgalo"));
-				accountInfo.setGarate(rs.getString("garate"));
+				accountInfo.setBalanceevaluationamount(rs.getString("balanceevaluationamount"));
+				accountInfo.setInvestmentincome(rs.getString("investmentincome"));
+				accountInfo.setJejus(rs.getString("jejus"));
+				accountInfo.setD1jejus(rs.getString("d1jejus"));
+				accountInfo.setD2jejus(rs.getString("d2jejus"));
+				accountInfo.setProfitrate(rs.getString("profitrate"));
 			}
 			return accountInfo;
 		}

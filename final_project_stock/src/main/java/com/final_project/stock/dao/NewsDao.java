@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.final_project.stock.dto.EmartNewsDto;
 import com.final_project.stock.dto.KospiDto;
+import com.final_project.stock.dto.ShinNewsDto;
 
 public class NewsDao {
 		final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
@@ -66,6 +67,51 @@ public class NewsDao {
 					emartNewsDto.setEmartcontent(rs.getString("NewsContent"));
 				}
 				return emartNewsDto;
+			}
+
+		}
+		
+		public ArrayList<ShinNewsDto> ShinNews() throws Exception {
+			Connection conn = open();
+			ArrayList<ShinNewsDto> shinNewsList = new ArrayList<>();
+
+			String sql = "SELECT * FROM Shinnews";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			try (conn; pstmt; rs) {
+				while (rs.next()) {
+					ShinNewsDto shinNewsDto = new ShinNewsDto();
+					shinNewsDto.setShinnum(rs.getInt("NewsNum"));
+					shinNewsDto.setShindate(rs.getString("NewsDate"));;
+					shinNewsDto.setShintitle(rs.getString("NewsTitle"));;
+					shinNewsDto.setShincontent(rs.getString("NewsContent"));
+					shinNewsDto.setShinpn(rs.getString("NewsPN"));
+
+					shinNewsList.add(shinNewsDto);
+				}
+			}
+			return shinNewsList;
+
+		}
+		
+		public ShinNewsDto getShinNews(int shinnum) throws Exception {
+			Connection conn = open();
+
+			ShinNewsDto shinNewsDto = new ShinNewsDto();
+
+			String sql = "select NewsDate,NewsTitle,NewsContent from ShinNews where NewsNum=?";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, shinnum);
+			ResultSet rs = pstmt.executeQuery();
+			try (conn; pstmt; rs) {
+				if (rs.next()) {
+					shinNewsDto.setShindate(rs.getString("NewsDate"));
+					shinNewsDto.setShintitle(rs.getString("NewsTitle"));
+					shinNewsDto.setShincontent(rs.getString("NewsContent"));
+				}
+				return shinNewsDto;
 			}
 
 		}

@@ -2,56 +2,58 @@ package com.final_project.stock.dto;
 
 public class AccountInfoDto {
 	
-	private String odrbqty;
-	private String trbqty;
-	private String avalpri;
-	private String valgalo;
-	private String garate;
-
-	public String getOdrbqty() {
-		return odrbqty;
+	private String balanceevaluationamount;
+	private String investmentincome;
+	private String jejus;
+	private String d1jejus;
+	private String d2jejus;
+	private String profitrate;
+	
+	public String getBalanceevaluationamount() {
+		return balanceevaluationamount;
 	}
-
-	public void setOdrbqty(String odrbqty) {
-		this.odrbqty = odrbqty;
+	public void setBalanceevaluationamount(String balanceevaluationamount) {
+		this.balanceevaluationamount = balanceevaluationamount;
 	}
-
-	public String getTrbqty() {
-		return trbqty;
+	public String getInvestmentincome() {
+		return investmentincome;
 	}
-
-	public void setTrbqty(String trbqty) {
-		this.trbqty = trbqty;
+	public void setInvestmentincome(String investmentincome) {
+		this.investmentincome = investmentincome;
 	}
-
-	public String getAvalpri() {
-		return avalpri;
+	public String getJejus() {
+		return jejus;
 	}
-
-	public void setAvalpri(String avalpri) {
-		this.avalpri = avalpri;
+	public void setJejus(String jejus) {
+		this.jejus = jejus;
 	}
-
-	public String getValgalo() {
-		return valgalo;
+	public String getD1jejus() {
+		return d1jejus;
 	}
-
-	public void setValgalo(String valgalo) {
-		this.valgalo = valgalo;
+	public void setD1jejus(String d1jejus) {
+		this.d1jejus = d1jejus;
 	}
-
-	public String getGarate() {
-		return garate;
+	public String getD2jejus() {
+		return d2jejus;
 	}
-
-	public void setGarate(String garate) {
-		this.garate = garate;
+	public void setD2jejus(String d2jejus) {
+		this.d2jejus = d2jejus;
 	}
-
+	public String getProfitrate() {
+		return profitrate;
+	}
+	public void setProfitrate(String profitrate) {
+		this.profitrate = profitrate;
+	}
+	
 	@Override
 	public String toString() {
-		return "AccountInfo [odrbqty=" + odrbqty + ", trbqty=" + trbqty + ", avalpri=" + avalpri + ", valgalo="
-				+ valgalo + ", garate=" + garate + "]";
+		return "AccountInfoDto [balanceevaluationamount=" + balanceevaluationamount + ", investmentincome="
+				+ investmentincome + ", jejus=" + jejus + ", d1jejus=" + d1jejus + ", d2jejus=" + d2jejus
+				+ ", profitrate=" + profitrate + "]";
 	}
+
+	
+	
 	
 }

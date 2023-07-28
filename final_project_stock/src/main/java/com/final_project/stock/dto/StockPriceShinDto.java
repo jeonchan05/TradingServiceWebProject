@@ -14,7 +14,7 @@ public class StockPriceShinDto {
 
 	@Override
 	public String toString() {
-		return ShinClosePrice;
+		return ShinClosePrice ;
 	}
 
 }

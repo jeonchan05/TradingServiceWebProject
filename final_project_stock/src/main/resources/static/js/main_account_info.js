@@ -2,44 +2,60 @@ const socket = new SockJS('/websocket');
 const stompClient = Stomp.over(socket);
 stompClient.connect({}, function(frame) {
 
-	stompClient.subscribe('/stock/odrbqty', function(message) {
+	stompClient.subscribe('/stock/balanceevaluationamount', function(message) {
 		const data = JSON.parse(message.body);
-		document.getElementById('odrbqty').innerText = data;
+		const balanceevaluationamount = parseFloat(data)
+		result = balanceevaluationamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		document.getElementById('balanceevaluationamount').innerText = result+"원";
 	});
 
-	stompClient.subscribe('/stock/trbqty', function(message) {
+	stompClient.subscribe('/stock/jejus', function(message) {
 		const data = JSON.parse(message.body);
-		document.getElementById('trbqty').innerText = data;
+		const jejus = parseFloat(data)
+		result = jejus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		document.getElementById('jejus').innerText = result+"원";
+	});
+	
+	stompClient.subscribe('/stock/d1jejus', function(message) {
+		const data = JSON.parse(message.body);
+		const d1jejus = parseFloat(data)
+		result = d1jejus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		document.getElementById('d1jejus').innerText = result+"원";
+	});
+	
+	stompClient.subscribe('/stock/d2jejus', function(message) {
+		const data = JSON.parse(message.body);
+		const d2jejus = parseFloat(data)
+		result = d2jejus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		document.getElementById('d2jejus').innerText = result+"원";
 	});
 
-	stompClient.subscribe('/stock/avalpri', function(message) {
-		const data = JSON.parse(message.body);
-		document.getElementById('avalpri').innerText = data;
-	});
 
-	stompClient.subscribe('/stock/valgalo', function(message) {
-		const data = JSON.parse(message.body);
-		const valgalo = parseFloat(data)
-		const valgalodiv = document.getElementById('valgalo');
-		if (valgalo < 0) {
-			document.getElementById('valgalo').innerText = valgalo;
-			valgalodiv.style.color = "blue";
+	stompClient.subscribe('/stock/investmentincome', function(message) {
+		const data = message.body;
+		const investmentincome = parseInt(data)
+		const investmentincomediv = document.getElementById('investmentincome');
+		if (investmentincome < 0) {
+			result = investmentincome.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			document.getElementById('investmentincome').innerText = result+"원";
+			investmentincomediv.style.color = "blue";
 		} else {
-			document.getElementById('valgalo').innerText = valgalo;
-			valgalodiv.style.color = "red";
+			result = investmentincome.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			document.getElementById('investmentincome').innerText = result+"원";
+			investmentincomediv.style.color = "red";
 		}
 	});
 
-	stompClient.subscribe('/stock/garate', function(message) {
+	stompClient.subscribe('/stock/profitrate', function(message) {
 		const data = message.body;
-		const garate = parseFloat(data)
-		const garatediv = document.getElementById('garate');
-		if (garate < 0) {
-			document.getElementById('garate').innerText = garate + "%";
-			garatediv.style.color = "blue";
+		const profitrate = parseFloat(data)
+		const profitratediv = document.getElementById('profitrate');
+		if (profitrate < 0) {
+			document.getElementById('profitrate').innerText = profitrate + "%";
+			profitratediv.style.color = "blue";
 		} else {
-			document.getElementById('garate').innerText = garate + "%";
-			garatediv.style.color = "red";
+			document.getElementById('profitrate').innerText = profitrate + "%";
+			profitratediv.style.color = "red";
 		}
 
 	});

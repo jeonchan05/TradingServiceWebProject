@@ -147,7 +147,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinpredict">없음</h2>
+											<h2 class="h1 mb-0 me-4" id="shinpredict">로딩중...</h2>
 										</div>
 										<div>
 											<h4>신세계 예측</h4>
@@ -165,7 +165,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinfoodpredict">없음</h2>
+											<h2 class="h1 mb-0 me-4" id="shinfoodpredict">로딩중...</h2>
 										</div>
 										<div>
 											<h4>신세계푸드 예측</h4>
@@ -183,7 +183,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="emartpredict">없음</h2>
+											<h2 class="h1 mb-0 me-4" id="emartpredict">로딩중...</h2>
 										</div>
 										<div>
 											<h4>이마트 예측</h4>
@@ -197,19 +197,6 @@ body {
 					</div>
 				</div>
 			</section>
-			<!-- <section class="mb-4">
-				<div class="card">
-					<div class="card-header text-center py-3">
-						<h5 class="mb-0 text-center">
-							<strong id="title">AI 자동 거래 신세계 Portfolio Value 차트</strong>
-						</h5>
-					</div>
-					<div class="card-body">
-						<div id="shinchart" style="width: 1200px; height: 400px;"></div>
-						<script src="/js/shinchart.js"></script>
-					</div>
-				</div>
-			</section> -->
 			<section class="mb-4">
 				<div class="card">
 					<div class="card-header text-center py-3">
@@ -218,24 +205,11 @@ body {
 						</h5>
 					</div>
 					<div class="card-body">
-						<div id="shinfoodchart" style="width: 1200px; height: 400px;"></div>
-						<script src="/js/shinfoodchart.js"></script>
+						<div id="Portfoliochart" style="width: 1200px; height: 350px;"></div>
+						<script src="/js/portfoliochart.js"></script>
 					</div>
 				</div>
 			</section>
-			<!-- <section class="mb-4">
-				<div class="card">
-					<div class="card-header text-center py-3">
-						<h5 class="mb-0 text-center">
-							<strong id="title">AI 자동 거래 이마트 Portfolio Value 차트</strong>
-						</h5>
-					</div>
-					<div class="card-body">
-						<div id="emartchart" style="width: 1200px; height: 400px;"></div>
-						<script src="/js/emartchart.js"></script>
-					</div>
-				</div>
-			</section> -->
 		</div>
 	</main>
 	<!--Main layout-->

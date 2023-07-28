@@ -148,11 +148,12 @@ body {
 									<tr>
 										<th>사용자 정보</th>
 										<th>계좌번호</th>
-										<th>결제잔고수량</th>
-										<th>체결잔고수량</th>
-										<th>총평가금액</th>
-										<th>평가손익</th>
-										<th>수익율</th>
+										<th>잔고평가금액</th>
+										<th>투자손익금액</th>
+										<th>예수금</th>
+										<th>D+1예수금</th>
+										<th>D+2예수금</th>
+										<th>손익률</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -168,27 +169,31 @@ body {
 											</div>
 										</td>
 										<td>
-											<p class="fw-normal mb-1">333-016784</p>
+											<p class="fw-normal mb-1">555018903-01</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="odrbqty">${Odrbqty}</p>
+											<p class="fw-normal mb-1" id="balanceevaluationamount">${balanceevaluationamount}원</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="trbqty">${Trbqty}</p>
+											<p class="fw-normal mb-1" id="investmentincome">${investmentincome}원</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="avalpri">${Avalpri}</p>
+											<p class="fw-normal mb-1" id="jejus">${jejus}원</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="valgalo">${Valgalo}</p>
+											<p class="fw-normal mb-1" id="d1jejus">${d1jejus}원</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 										<td>
-											<p class="fw-normal mb-1" id="garate">${Garate}</p>
+											<p class="fw-normal mb-1" id="d2jejus">${d2jejus}원</p>
+											<p class="text-muted mb-0"></p>
+										</td>
+										<td>
+											<p class="fw-normal mb-1" id="profitrate">${profitrate}%</p>
 											<p class="text-muted mb-0"></p>
 										</td>
 									</tr>
@@ -202,7 +207,7 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">실시간 매매</strong>
+							<strong id="title">실시간 매매 정보</strong>
 						</h5>
 					</div>
 					<div class="card-body">
@@ -211,30 +216,26 @@ body {
 								<table id="Transaction_details2" class="display">
 									<thead>
 										<tr>
-											<th>날짜</th>
+											<th>주문시간</th>
+											<th>체결시간</th>
 											<th>주문번호</th>
-											<th>종목코드</th>
-											<th>종목이름</th>
-											<th>주문수량</th>
-											<th>총체결수량</th>
-											<th>체결수량</th>
-											<th>체결단가</th>
-											<th>정정취소구분내용</th>
-											<th>매매구분</th>
+											<th>종목명</th>
+											<th>주문가 </th>
+											<th>체결가</th>
+											<th>체결수량 </th>
+											<th>주문유형</th>
 										</tr>
 									</thead>
 									<tbody>
 											<tr>
-												<td id="datetime">없음</td>
-												<td id="odrnum">없음</td>
-												<td id="stcode">없음</td>
-												<td id="stname">없음</td>
-												<td id="odrqty">없음</td>
-												<td id="trallqty">없음</td>
-												<td id="trqty">없음</td>
-												<td id="trprice">없음</td>
-												<td id="odrgubun">없음</td>
-												<td id="trgubun">없음</td>
+												<td id="ordertime">없음</td>
+												<td id="excepttime">없음</td>
+												<td id="ordernum">없음</td>
+												<td id="stockname">없음</td>
+												<td id="orderprice">없음</td>
+												<td id="exceptprice">없음</td>
+												<td id="exceptqty">없음</td>
+												<td id="gubun">없음</td>
 											</tr>
 									</tbody>
 								</table>
@@ -257,32 +258,28 @@ body {
 								<table id="Transaction_details" class="display">
 									<thead>
 										<tr>
-											<th>날짜</th>
+											<th>주문시간</th>
+											<th>체결시간</th>
 											<th>주문번호</th>
-											<th>종목코드</th>
-											<th>종목이름</th>
-											<th>주문수량</th>
-											<th>총체결수량</th>
-											<th>체결수량</th>
-											<th>체결단가</th>
-											<th>정정취소구분내용</th>
-											<th>매매구분</th>
+											<th>종목명</th>
+											<th>주문가 </th>
+											<th>체결가</th>
+											<th>체결수량 </th>
+											<th>주문유형</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="TradingList" items="${AllTradingHistory}"
 											varStatus="status">
 											<tr>
-												<td>${TradingList.datetime}</td>
-												<td>${TradingList.odrnum}</td>
-												<td>${TradingList.stcode}</td>
-												<td>${TradingList.stname}</td>
-												<td>${TradingList.odrqty}</td>
-												<td>${TradingList.trallqty}</td>
-												<td>${TradingList.trqty}</td>
-												<td>${TradingList.trprice}</td>
-												<td>${TradingList.odrgubun}</td>
-												<td>${TradingList.trgubun}</td>
+												<td>${TradingList.ordertime}</td>
+												<td>${TradingList.excepttime}</td>
+												<td>${TradingList.ordernum}</td>
+												<td>${TradingList.stockname}</td>
+												<td>${TradingList.orderprice}</td>
+												<td>${TradingList.exceptprice}</td>
+												<td>${TradingList.exceptqty}</td>
+												<td>${TradingList.gubun}</td>
 											</tr>
 										</c:forEach>
 									</tbody>

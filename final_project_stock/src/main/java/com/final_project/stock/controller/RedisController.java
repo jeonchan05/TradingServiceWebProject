@@ -91,42 +91,40 @@ public class RedisController {
 	}
 
 	public void AccountInfo() {
-		String odrbqty = "odrbqty";
-		String trbqty = "trbqty";
-		String avalpri = "avalpri";
-		String valgalo = "valgalo";
-		String garate = "garate";
+		
+		// 주문체결 내역
+		String ordertime = "ordertime"; 	// 주문시간
+		String excepttime = "excepttime";		//	체결시간
+		String ordernum = "ordernum";		//	주문번호
+		String stockname = "stockname";		//	종목명
+		String orderprice = "orderprice";			// 주문가
+		String exceptprice = "exceptprice";		// 체결가
+		String exceptqty = "exceptqty";			// 체결수량
+		String gubun = "gubun";			// 주문유형
+		
+		
+		String balanceevaluationamount = "balanceevaluationamount";
+		String investmentincome = "investmentincome";
+		String jejus = "jejus";
+		String d1jejus = "d1jejus";
+		String d2jejus = "d2jejus";
+		String profitrate = "profitrate";
 
-		String datetime = "datetime";
-		String odrnum = "odrnum";
-		String stcode = "stcode";
-		String stname = "stname";
-		String odrqty = "odrqty";
-		String trallqty = "trallqty";
-		String trqty = "trqty";
-		String trprice = "trprice";
-		String odrgubun = "odrgubun";
-		String trgubun = "trgubun";
-
-		String test = "my_channel";
-
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrbqty));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trbqty));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(avalpri));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(valgalo));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(garate));
-
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(datetime));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrnum));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(stcode));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(stname));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrqty));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trallqty));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trqty));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trprice));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(odrgubun));
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(trgubun));
-
-		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(test));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(ordertime));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(excepttime));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(ordernum));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(stockname));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(orderprice));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(exceptprice));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(exceptqty));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(gubun));
+		
+		
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(balanceevaluationamount));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(investmentincome));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(jejus));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(d1jejus));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(d2jejus));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(profitrate));
 	}
 }

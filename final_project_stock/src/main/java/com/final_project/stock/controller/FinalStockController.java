@@ -1,6 +1,7 @@
 package com.final_project.stock.controller;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,19 +76,16 @@ public class FinalStockController {
 	@GetMapping("/login/stockchart")
 	public String main_stock_chart(Model model) {
 		StockPriceDao stockPriceDao = new StockPriceDao();
-		StockPriceShinDto shinPrice = null;
-		StockPriceShinFood shinFoodPrice = null;
-		StockPriceEmartDto EmartPrice = null;
 		try {
-			shinPrice = stockPriceDao.searchShinRecent();
-			shinFoodPrice = stockPriceDao.searchShinFoodRecent();
-			EmartPrice = stockPriceDao.searchEmartRecent();
+			StockPriceShinDto shinPrice  = stockPriceDao.searchShinRecent();
+			StockPriceShinFood shinFoodPrice = stockPriceDao.searchShinFoodRecent();
+			StockPriceEmartDto EmartPrice =  stockPriceDao.searchEmartRecent();
+			model.addAttribute("shinPrice", shinPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
+			model.addAttribute("shinFoodPrice", shinFoodPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
+			model.addAttribute("EmartPrice", EmartPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("shinPrice", shinPrice);
-		model.addAttribute("shinFoodPrice", shinFoodPrice);
-		model.addAttribute("EmartPrice", EmartPrice);
 		return "main_stock_chart";
 	}
 	
@@ -97,18 +95,21 @@ public class FinalStockController {
 		AccountInfoDao accountInfo = new AccountInfoDao();
 		try {
 			ArrayList<TradingHistoryDto> AllHistoryList = tradingHistroyDao.tradingAllHistory();
-			model.addAttribute("AllTradingHistory", AllHistoryList);
 			AccountInfoDto AccountInfo = accountInfo.getAccountInfo();
-			String odrbqty = AccountInfo.getOdrbqty();
-			String trbqty = AccountInfo.getTrbqty();
-			String avalpri = AccountInfo.getAvalpri();
-			String valgalo = AccountInfo.getValgalo();
-			String garate = AccountInfo.getGarate();
-			model.addAttribute("Odrbqty", odrbqty);
-			model.addAttribute("Trbqty", trbqty);
-			model.addAttribute("Avalpri", avalpri);
-			model.addAttribute("Valgalo", valgalo);
-			model.addAttribute("Garate", garate);
+			String balanceevaluationamount = AccountInfo.getBalanceevaluationamount().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			String investmentincome = AccountInfo.getInvestmentincome().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			String jejus = AccountInfo.getJejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			String d1jejus = AccountInfo.getD1jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			String d2jejus = AccountInfo.getD2jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");;
+			String profitrate = AccountInfo.getProfitrate();
+			model.addAttribute("AllTradingHistory", AllHistoryList);
+			model.addAttribute("balanceevaluationamount", balanceevaluationamount);
+			model.addAttribute("investmentincome", investmentincome);
+			model.addAttribute("jejus", jejus);
+			model.addAttribute("d1jejus", d1jejus);
+			model.addAttribute("d2jejus", d2jejus);
+			model.addAttribute("profitrate", profitrate);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -148,7 +149,7 @@ public class FinalStockController {
 	}
 	@GetMapping("/test")
 	public String test() {
-		return "test";
+		return "testchart";
 	}
 	
 	@GetMapping("/login/{emartnum}")
@@ -239,7 +240,5 @@ public class FinalStockController {
 		session.removeAttribute("userid");
 		return "redirect:/rainbowcompany/main";
 	}
-	
-
 	
 }

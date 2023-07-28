@@ -35,16 +35,14 @@ public class TradeHistoryDao {
 			try (conn; pstmt; rs) {
 				while (rs.next()) {
 					TradingHistoryDto tradingHistory = new TradingHistoryDto();
-					tradingHistory.setdatetime(rs.getString("datetime"));
-					tradingHistory.setOdrnum(rs.getString("odrnum"));
-					tradingHistory.setStcode(rs.getString("stcode"));
-					tradingHistory.setStname(rs.getString("stname"));
-					tradingHistory.setOdrqty(rs.getString("odrqty"));
-					tradingHistory.setTrallqty(rs.getString("trallqty"));
-					tradingHistory.setTrqty(rs.getString("trqty"));
-					tradingHistory.setTrprice(rs.getString("trprice"));
-					tradingHistory.setOdrgubun(rs.getString("odrgubun"));
-					tradingHistory.setTrgubun(rs.getString("trgubun"));
+					tradingHistory.setOrdertime(rs.getString("ordertime"));
+					tradingHistory.setExcepttime(rs.getString("excepttime"));
+					tradingHistory.setOrdernum(rs.getString("ordernum"));
+					tradingHistory.setStockname(rs.getString("stockname"));
+					tradingHistory.setOrderprice(rs.getString("orderprice"));
+					tradingHistory.setExceptprice(rs.getString("exceptprice"));
+					tradingHistory.setExceptqty(rs.getString("exceptqty"));
+					tradingHistory.setGubun(rs.getString("gubun"));
 
 					tradingAllList.add(tradingHistory);
 				}
