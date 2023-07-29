@@ -145,7 +145,8 @@ h2, h4 {
 											<h2 class="h1 mb-0 me-4" id="shinprice">${shinPrice}</h2>
 										</div>
 										<div>
-											<h4>신세계 주가</h4>
+											<h4>신세계</h4>
+											<h4> StockPrice</h4>
 											<p class="mb-0">분단위</p>
 										</div>
 									</div>
@@ -165,12 +166,13 @@ h2, h4 {
 											<h2 class="h1 mb-0 me-4" id="shinfoodprice">${shinFoodPrice}</h2>
 										</div>
 										<div>
-											<h4>신세계푸드 주가</h4>
+											<h4>신세계푸드</h4>
+											<h4>StockPrice</h4>
 											<p class="mb-0">분단위</p>
 										</div>
 									</div>
 									<div class="align-self-center">
-										<img src="/images/won.png" height="45" alt="won" />
+										<img src="/images/won.png" height="45" alt="won" class="shinwon"/>
 									</div>
 								</div>
 							</div>
@@ -185,7 +187,8 @@ h2, h4 {
 											<h2 class="h1 mb-0 me-4" id="emartprice">${EmartPrice}</h2>
 										</div>
 										<div>
-											<h4>이마트 주가</h4>
+											<h4>이마트</h4>
+											<h4>StockPrice</h4>
 											<p class="mb-0">분단위</p>
 										</div>
 									</div>

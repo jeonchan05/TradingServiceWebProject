@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.final_project.stock.dto.EmartNewsDto;
-import com.final_project.stock.dto.KospiDto;
+import com.final_project.stock.dto.ShinFoodNewsDto;
 import com.final_project.stock.dto.ShinNewsDto;
 
 public class NewsDao {
@@ -100,7 +100,7 @@ public class NewsDao {
 
 			ShinNewsDto shinNewsDto = new ShinNewsDto();
 
-			String sql = "select NewsDate,NewsTitle,NewsContent from ShinNews where NewsNum=?";
+			String sql = "select NewsDate,NewsTitle,NewsContent from Shinnews where NewsNum=?";
 
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, shinnum);
@@ -112,6 +112,51 @@ public class NewsDao {
 					shinNewsDto.setShincontent(rs.getString("NewsContent"));
 				}
 				return shinNewsDto;
+			}
+
+		}
+		
+		public ArrayList<ShinFoodNewsDto> ShinFoodNews() throws Exception {
+			Connection conn = open();
+			ArrayList<ShinFoodNewsDto> shinFoodNewsList = new ArrayList<>();
+
+			String sql = "SELECT * FROM ShinFoodnews";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			try (conn; pstmt; rs) {
+				while (rs.next()) {
+					ShinFoodNewsDto shinFoodNewsDto = new ShinFoodNewsDto();
+					shinFoodNewsDto.setShinfoodnum(rs.getInt("NewsNum"));
+					shinFoodNewsDto.setShinfooddate(rs.getString("NewsDate"));;
+					shinFoodNewsDto.setShinfoodtitle(rs.getString("NewsTitle"));;
+					shinFoodNewsDto.setShinfoodcontent(rs.getString("NewsContent"));
+					shinFoodNewsDto.setShinfoodpn(rs.getString("NewsPN"));
+
+					shinFoodNewsList.add(shinFoodNewsDto);
+				}
+			}
+			return shinFoodNewsList;
+
+		}
+		
+		public ShinFoodNewsDto getShinFoodNews(int shinfoodnum) throws Exception {
+			Connection conn = open();
+
+			ShinFoodNewsDto shinFoodNewsDto = new ShinFoodNewsDto();
+
+			String sql = "select NewsDate,NewsTitle,NewsContent from ShinFoodnews where NewsNum=?";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, shinfoodnum);
+			ResultSet rs = pstmt.executeQuery();
+			try (conn; pstmt; rs) {
+				if (rs.next()) {
+					shinFoodNewsDto.setShinfooddate(rs.getString("NewsDate"));
+					shinFoodNewsDto.setShinfoodtitle(rs.getString("NewsTitle"));
+					shinFoodNewsDto.setShinfoodcontent(rs.getString("NewsContent"));
+				}
+				return shinFoodNewsDto;
 			}
 
 		}

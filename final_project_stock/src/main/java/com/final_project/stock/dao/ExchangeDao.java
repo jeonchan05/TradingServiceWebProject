@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 import com.final_project.stock.dto.ExchangeDto;
+import com.final_project.stock.dto.KospiDto;
 
 @Repository
 public class ExchangeDao {
@@ -20,7 +22,7 @@ public class ExchangeDao {
 		Connection conn = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(JDBC_URL, "SUJIN", "SUJIN");
+			conn = DriverManager.getConnection(JDBC_URL, "CHAN", "CHAN");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,5 +68,24 @@ public class ExchangeDao {
 			return exchangeAll;
 		}
 
+	}
+	
+	public List<ExchangeDto> searchExchangeChart() throws Exception {
+		Connection conn = open();
+
+		List<ExchangeDto> exchangeChart = new ArrayList<>();
+
+		String sql = "SELECT ExchangeDate, USD FROM exchange_crawling order by ExchangeDate desc limit 30";
+
+		try (PreparedStatement pstmt = conn.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
+
+			while (rs.next()) {
+				ExchangeDto exchange = new ExchangeDto();
+				exchange.setDate(rs.getString("ExchangeDate"));
+				exchange.setUSD(rs.getString("USD"));
+				exchangeChart.add(exchange);
+			}
+		}
+		return exchangeChart;
 	}
 }

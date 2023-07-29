@@ -5,7 +5,6 @@ public class ExchangeDto {
 	private String USD;
 	private String CNY;
 	
-	
 	public String getDate() {
 		return Date;
 	}
@@ -24,9 +23,10 @@ public class ExchangeDto {
 	public void setCNY(String cNY) {
 		CNY = cNY;
 	}
-	
 	@Override
 	public String toString() {
 		return "ExchangeDto [Date=" + Date + ", USD=" + USD + ", CNY=" + CNY + "]";
 	}
+	
+	
 }

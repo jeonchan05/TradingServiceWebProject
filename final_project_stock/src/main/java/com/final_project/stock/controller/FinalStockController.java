@@ -29,6 +29,8 @@ import com.final_project.stock.dao.TradeHistoryDao;
 import com.final_project.stock.dao.UserTableDao;
 import com.final_project.stock.dto.AccountInfoDto;
 import com.final_project.stock.dto.EmartNewsDto;
+import com.final_project.stock.dto.ShinFoodNewsDto;
+import com.final_project.stock.dto.ShinNewsDto;
 import com.final_project.stock.dto.StockPriceEmartDto;
 import com.final_project.stock.dto.StockPriceShinDto;
 import com.final_project.stock.dto.StockPriceShinFood;
@@ -102,13 +104,14 @@ public class FinalStockController {
 			String d1jejus = AccountInfo.getD1jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
 			String d2jejus = AccountInfo.getD2jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");;
 			String profitrate = AccountInfo.getProfitrate();
+			String profitrate1 = profitrate.substring(0,5);
 			model.addAttribute("AllTradingHistory", AllHistoryList);
 			model.addAttribute("balanceevaluationamount", balanceevaluationamount);
 			model.addAttribute("investmentincome", investmentincome);
 			model.addAttribute("jejus", jejus);
 			model.addAttribute("d1jejus", d1jejus);
 			model.addAttribute("d2jejus", d2jejus);
-			model.addAttribute("profitrate", profitrate);
+			model.addAttribute("profitrate", profitrate1);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,7 +129,12 @@ public class FinalStockController {
 		NewsDao newsDao = new NewsDao();
 		try {
 			ArrayList<EmartNewsDto> emartNewsList = newsDao.EmartNews();
+			ArrayList<ShinNewsDto> shinNewsList = newsDao.ShinNews();
+			ArrayList<ShinFoodNewsDto> shinFoodNewsList = newsDao.ShinFoodNews();
+			
 			model.addAttribute("emartNews", emartNewsList);
+			model.addAttribute("shinNews", shinNewsList);
+			model.addAttribute("shinFoodNews", shinFoodNewsList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -152,7 +160,7 @@ public class FinalStockController {
 		return "testchart";
 	}
 	
-	@GetMapping("/login/{emartnum}")
+	@GetMapping("/login/emartnews/{emartnum}")
 	public String getEmartNews(@PathVariable int emartnum, Model model) {
 		NewsDao newsDao = new NewsDao();
 		try {
@@ -162,6 +170,30 @@ public class FinalStockController {
 			e.printStackTrace();
 		}
 		return "emartnewsdetails";
+	}
+	
+	@GetMapping("/login/shinnews/{shinnum}")
+	public String getShinnumNews(@PathVariable int shinnum, Model model) {
+		NewsDao newsDao = new NewsDao();
+		try {
+			ShinNewsDto selectnews = newsDao.getShinNews(shinnum);
+			model.addAttribute("shinNews", selectnews);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "shinnewsdetails";
+	}
+	
+	@GetMapping("/login/shinfoodnews/{shinfoodnum}")
+	public String getShinfoodnumNews(@PathVariable int shinfoodnum, Model model) {
+		NewsDao newsDao = new NewsDao();
+		try {
+			ShinFoodNewsDto selectnews = newsDao.getShinFoodNews(shinfoodnum);
+			model.addAttribute("shinFoodNews", selectnews);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "shinfoodnewsdetails";
 	}
 	
 	

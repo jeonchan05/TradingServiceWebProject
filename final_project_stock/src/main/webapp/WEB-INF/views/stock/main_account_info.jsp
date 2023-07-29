@@ -36,6 +36,14 @@
 <script src="/js/accountinfo.js"></script>
 <script src="/js/livehistory.js"></script>
 <style type="text/css">
+.blue-text {
+	color: blue;
+}
+
+.red-text {
+	color: red;
+}
+
 body {
 	background-color: #fbfbfb;
 }
@@ -220,23 +228,23 @@ body {
 											<th>체결시간</th>
 											<th>주문번호</th>
 											<th>종목명</th>
-											<th>주문가 </th>
+											<th>주문가</th>
 											<th>체결가</th>
-											<th>체결수량 </th>
+											<th>체결수량</th>
 											<th>주문유형</th>
 										</tr>
 									</thead>
 									<tbody>
-											<tr>
-												<td id="ordertime">없음</td>
-												<td id="excepttime">없음</td>
-												<td id="ordernum">없음</td>
-												<td id="stockname">없음</td>
-												<td id="orderprice">없음</td>
-												<td id="exceptprice">없음</td>
-												<td id="exceptqty">없음</td>
-												<td id="gubun">없음</td>
-											</tr>
+										<tr>
+											<td id="ordertime">없음</td>
+											<td id="excepttime">없음</td>
+											<td id="ordernum">없음</td>
+											<td id="stockname">없음</td>
+											<td id="orderprice">없음</td>
+											<td id="exceptprice">없음</td>
+											<td id="exceptqty">없음</td>
+											<td id="gubun">없음</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -262,9 +270,9 @@ body {
 											<th>체결시간</th>
 											<th>주문번호</th>
 											<th>종목명</th>
-											<th>주문가 </th>
+											<th>주문가</th>
 											<th>체결가</th>
-											<th>체결수량 </th>
+											<th>체결수량</th>
 											<th>주문유형</th>
 										</tr>
 									</thead>
@@ -314,5 +322,28 @@ pw = '<%=(String) session.getAttribute("userpassword")%>';
 			break;
 		}
 	}
+</script>
+<script type="text/javascript">
+const profitRate = document.getElementById('profitrate');
+
+const profitRateValue = parseFloat(${profitrate});
+
+if (profitRateValue < 0) {
+  profitRate.classList.add('blue-text');
+} else {
+  profitRate.classList.add('red-text');
+}
+</script>
+
+<script type="text/javascript">
+const investmentincome = document.getElementById('investmentincome');
+
+const investmentincomevalue = parseInt(${investmentincome});
+
+if (investmentincomevalue < 0) {
+	investmentincome.classList.add('blue-text');
+} else {
+	investmentincome.classList.add('red-text');
+}
 </script>
 </html>

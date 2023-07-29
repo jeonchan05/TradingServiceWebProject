@@ -90,13 +90,11 @@ public class KospiDao {
 	
 	public List<KospiDto> searchKospiChart() throws Exception {
 		Connection conn = open();
-
 		List<KospiDto> kospiChart = new ArrayList<>();
 
-		String sql = "SELECT * FROM kospi_crawling order by kospiDate desc limit 20";
+		String sql = "SELECT * FROM kospi_crawling order by kospiDate desc limit 30";
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
-
 			while (rs.next()) {
 				KospiDto kospi = new KospiDto();
 				kospi.setDate(rs.getString("KospiDate"));
@@ -104,7 +102,6 @@ public class KospiDao {
 				kospiChart.add(kospi);
 			}
 		}
-
 		return kospiChart;
 	}
 

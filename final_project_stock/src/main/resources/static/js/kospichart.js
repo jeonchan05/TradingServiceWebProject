@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Function to update the chart with new data
 	function updateChart(chart, x, y) {
 		if (x && y) {
-			chart.series[0].addPoint({ name: x, y }, true, chart.series[0].data.length >= 60);
+			chart.series[0].addPoint({ name: x, y }, true, chart.series[0].data.length >= 100);
 		}
 	}
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					type: 'category',
 					categories: dates, // X축: 날짜
 					title: {
-						text: 'Date'
+						text: '날짜'
 					},
 				},
 				yAxis: {
@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				series: [
 					{
 						name: 'KOSPI',
-						data: values // Y축: KOSPI 지수
+						data: values, // Y축: KOSPI 지수
+						color:'rgba(95, 4, 159, 1)'
 					},
 				],
 				credits: {
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					// 새로운 데이터가 들어올 때마다 dates 배열에 날짜를 추가
 					dates.push(kospidate);
 					// 배열이 20개 이상이면 가장 오래된 데이터를 삭제하여 제한
-					if (dates.length > 30) {
+					if (dates.length > 60) {
 						dates.shift();
 					}
 					// X축의 카테고리 데이터를 업데이트

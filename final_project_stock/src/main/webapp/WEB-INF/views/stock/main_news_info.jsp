@@ -37,7 +37,18 @@ body {
 
 .emartlogo {
 	margin-top: -10px;
-	width: 100px;
+	width: 120px;
+}
+.shinlogo {
+	margin-left:10px;
+	margin-top: -10px;
+	width: 120px;
+}
+.shinfoodlogo {
+	margin-left:10px;
+	margin-top: -10px;
+	width: 140px;
+	height: 20px;
 }
 
 @media ( min-width : 991.98px) {
@@ -141,15 +152,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">이마트 뉴스</strong> <img alt=""
+							<strong id="title">이마트 뉴스</strong> <img alt="이마트"
 								src="/images/emartlogo.png" class="emartlogo">
 						</h5>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<!-- <button onClick="window.location.reload()" id="refresh">
-								<i class="fa-solid fa-rotate-right">매매내역 새로고침</i>
-							</button> -->
 							<div style="width: 1200px; margin: 40px auto 0">
 								<table id="Transaction_details2" class="display">
 									<thead>
@@ -165,7 +173,8 @@ body {
 											<tr>
 												<td>${emart.emartnum}</td>
 												<td>${emart.emartdate}</td>
-												<td><a href="/rainbowcompany/login/${emart.emartnum}">${emart.emarttitle}</a></td>
+												<td><a
+													href="/rainbowcompany/login/emartnews/${emart.emartnum}">${emart.emarttitle}</a></td>
 												<td>${emart.emartpn}</td>
 											</tr>
 										</c:forEach>
@@ -181,14 +190,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">신세계 뉴스</strong>
+							<strong id="title">신세계 뉴스</strong> <img alt="신세계"
+								src="/images/shinlogo.png" class="shinlogo">
 						</h5>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<!-- <button onClick="window.location.reload()" id="refresh">
-								<i class="fa-solid fa-rotate-right">매매내역 새로고침</i>
-							</button> -->
 							<div style="width: 1200px; margin: 40px auto 0">
 								<table id="Transaction_details" class="display">
 									<thead>
@@ -200,12 +207,15 @@ body {
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>2023-04-25</td>
-											<td>신세계</td>
-											<td>7</td>
-											<td>61</td>
-										</tr>
+										<c:forEach var="shin" items="${shinNews}" varStatus="status">
+											<tr>
+												<td>${shin.shinnum}</td>
+												<td>${shin.shindate}</td>
+												<td><a
+													href="/rainbowcompany/login/shinnews/${shin.shinnum}">${shin.shintitle}</a></td>
+												<td>${shin.shinpn}</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -218,14 +228,12 @@ body {
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
-							<strong id="title">신세계 푸드 뉴스</strong>
+							<strong id="title">신세계 푸드 뉴스</strong><img alt="신세계푸드"
+								src="/images/shinfoodlogo.png" class="shinfoodlogo">
 						</h5>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<!-- <button onClick="window.location.reload()" id="refresh">
-								<i class="fa-solid fa-rotate-right">매매내역 새로고침</i>
-							</button> -->
 							<div style="width: 1200px; margin: 40px auto 0">
 								<table id="Transaction_details1" class="display">
 									<thead>
@@ -237,12 +245,16 @@ body {
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>2023-04-25</td>
-											<td>신세계</td>
-											<td>7</td>
-											<td>61</td>
-										</tr>
+										<c:forEach var="shinFood" items="${shinFoodNews}"
+											varStatus="status">
+											<tr>
+												<td>${shinFood.shinfoodnum}</td>
+												<td>${shinFood.shinfooddate}</td>
+												<td><a
+													href="/rainbowcompany/login/shinfoodnews/${shinFood.shinfoodnum}">${shinFood.shinfoodtitle}</a></td>
+												<td>${shinFood.shinfoodpn}</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

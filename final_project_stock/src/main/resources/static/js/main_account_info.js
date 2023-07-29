@@ -48,13 +48,13 @@ stompClient.connect({}, function(frame) {
 
 	stompClient.subscribe('/stock/profitrate', function(message) {
 		const data = message.body;
-		const profitrate = parseFloat(data)
+		const profitrate = parseFloat(data)*100
 		const profitratediv = document.getElementById('profitrate');
 		if (profitrate < 0) {
-			document.getElementById('profitrate').innerText = profitrate + "%";
+			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,5)  + "%";
 			profitratediv.style.color = "blue";
 		} else {
-			document.getElementById('profitrate').innerText = profitrate + "%";
+			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,5)  + "%";
 			profitratediv.style.color = "red";
 		}
 
