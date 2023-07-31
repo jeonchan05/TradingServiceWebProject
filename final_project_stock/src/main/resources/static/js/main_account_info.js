@@ -51,10 +51,10 @@ stompClient.connect({}, function(frame) {
 		const profitrate = parseFloat(data)*100
 		const profitratediv = document.getElementById('profitrate');
 		if (profitrate < 0) {
-			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,5)  + "%";
+			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,4)  + "%";
 			profitratediv.style.color = "blue";
 		} else {
-			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,5)  + "%";
+			document.getElementById('profitrate').innerText = profitrate.toString().substring(0,4)  + "%";
 			profitratediv.style.color = "red";
 		}
 

@@ -17,7 +17,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
 	rel="stylesheet" />
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script
@@ -197,16 +196,60 @@ body {
 					</div>
 				</div>
 			</section>
-			<section class="mb-4">
-				<div class="card">
-					<div class="card-header text-center py-3">
-						<h5 class="mb-0 text-center">
-							<strong id="title">AI 자동 거래 신세계,신세계 푸드,이마트 Portfolio Value 차트</strong>
-						</h5>
+			<section>
+				<div class="row">
+					<div class="col-xl-6 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-header text-center py-3">
+								<h5 class="mb-0 text-center">
+									<strong id="title">3종목 종합 수익률(%)</strong>
+								</h5>
+							</div>
+							<div class="card-body">
+								<div id="totalprofitchart" style="width: 600px; height: 500px;"></div>
+								<script src="/js/allProfit.js"></script>
+							</div>
+						</div>
 					</div>
-					<div class="card-body">
-						<div id="Portfoliochart" style="width: 1200px; height: 350px;"></div>
-						<script src="/js/portfoliochart.js"></script>
+					<div class="col-xl-6 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-header text-center py-3">
+								<h5 class="mb-0 text-center">
+									<strong id="title">신세계 수익률(%)</strong>
+								</h5>
+							</div>
+							<div class="card-body">
+								<div id="shinprofitchart" style="width: 600px; height: 500px;"></div>
+								<script src="/js/shinProfit.js"></script>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-header text-center py-3">
+								<h5 class="mb-0 text-center">
+									<strong id="title">신세계 푸드 수익률(%)</strong>
+								</h5>
+							</div>
+							<div class="card-body">
+								<div id="shinfoodprofitchart"
+									style="width: 600px; height: 500px;"></div>
+								<script src="/js/shinFoodProfit.js"></script>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-header text-center py-3">
+								<h5 class="mb-0 text-center">
+									<strong id="title">이마트 수익률(%)</strong>
+								</h5>
+							</div>
+							<div class="card-body">
+								<div id="emartprofitchart" style="width: 600px; height: 500px;"></div>
+								<script src="/js/emartProfit.js"></script>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>

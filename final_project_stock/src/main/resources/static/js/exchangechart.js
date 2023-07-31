@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			data.sort((a, b) => new Date(a.date) - new Date(b.date));
 
 			// 데이터 가공
-			const dates = data.map(entry => entry.date);
+			const dates = data.map(entry => entry.date.substring(11));
 			const usd = data.map(entry => parseFloat(entry.usd));
 
 			// Highcharts를 이용하여 초기 그래프 생성
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			stompClientexchange.connect({}, function(frame) {
 				stompClientexchange.subscribe('/stock/exchangedatemin', function(message) {
 					exchangedate = message.body;
+					exchangedate = exchangedate.substring(11);
 					// 새로운 데이터가 들어올 때마다 dates 배열에 날짜를 추가
 					dates.push(exchangedate);
 					// 배열이 20개 이상이면 가장 오래된 데이터를 삭제하여 제한

@@ -270,7 +270,6 @@ body {
 											<th>체결시간</th>
 											<th>주문번호</th>
 											<th>종목명</th>
-											<th>주문가</th>
 											<th>체결가</th>
 											<th>체결수량</th>
 											<th>주문유형</th>
@@ -284,7 +283,6 @@ body {
 												<td>${TradingList.excepttime}</td>
 												<td>${TradingList.ordernum}</td>
 												<td>${TradingList.stockname}</td>
-												<td>${TradingList.orderprice}</td>
 												<td>${TradingList.exceptprice}</td>
 												<td>${TradingList.exceptqty}</td>
 												<td>${TradingList.gubun}</td>

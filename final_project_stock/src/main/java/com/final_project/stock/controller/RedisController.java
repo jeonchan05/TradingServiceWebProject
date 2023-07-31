@@ -25,8 +25,9 @@ public class RedisController {
 	@PostConstruct //Application 시작 전 실행하는 어노테이션
 	public void postConstruct() {
 		kospiandexchange();
-		Stock();
+		stock();
 		AccountInfo();
+		ProfitChart();
 	}
 
 	public void kospiandexchange() {
@@ -50,44 +51,15 @@ public class RedisController {
 		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(exchangedatemin));
 		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(exchangeusdmin));
 	}
-
-	public void Stock() {
-        
-        
-        String shin = "price_004170";
-        String shinfood = "price_031440";
-        String emart = "price_139480";
-        
-        String shinpredict = "004170action_channel";
-        String shinfoodpredict = "031440action_channel";
-        String emartpredict = "139480action_channel";
-        
-        String shinchart = "004170pv";
-        String shinfoodchart ="031440pv";
-        String emartchart ="139480pv";
-        
-        String shincharttime = "004170timepv";
-        String shinfoodcharttime ="031440timepv";
-        String emartcharttime ="139480timepv";
-        
-        
-        
-        
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shin));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfood));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emart));
-        
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinpredict));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodpredict));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartpredict));
-        
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinchart));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodchart));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartchart));
-        
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shincharttime));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodcharttime));
-        redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartcharttime));
+	
+	public void stock() {
+		String shinpredict = "004170action_channel";
+		String shinfoodpredict = "031440action_channel";
+		String emartpredict = "139480action_channel";
+		
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinpredict));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodpredict));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartpredict));
 	}
 
 	public void AccountInfo() {
@@ -126,5 +98,21 @@ public class RedisController {
 		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(d1jejus));
 		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(d2jejus));
 		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(profitrate));
+	}
+	
+	public void ProfitChart() {
+		
+		String datetime = "datetime";
+		String shinprofit = "shinprofit";
+		String shinfoodprofit = "foodprofit";
+		String emartprofit = "emartprofit";
+		String profitratechart = "profitratechart";
+		
+		
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(datetime));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinprofit));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(shinfoodprofit));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(emartprofit));
+		redisMessageListenerContainer.addMessageListener(redisMessageListener, new ChannelTopic(profitratechart));
 	}
 }

@@ -104,7 +104,7 @@ public class FinalStockController {
 			String d1jejus = AccountInfo.getD1jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
 			String d2jejus = AccountInfo.getD2jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");;
 			String profitrate = AccountInfo.getProfitrate();
-			String profitrate1 = profitrate.substring(0,5);
+			String profitrate1 = profitrate.substring(0,4);
 			model.addAttribute("AllTradingHistory", AllHistoryList);
 			model.addAttribute("balanceevaluationamount", balanceevaluationamount);
 			model.addAttribute("investmentincome", investmentincome);
