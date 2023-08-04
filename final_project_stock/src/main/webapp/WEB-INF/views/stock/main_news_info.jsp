@@ -200,10 +200,10 @@ body {
 								<table id="Transaction_details" class="display">
 									<thead>
 										<tr>
+											<th>뉴스번호</th>
 											<th>날짜</th>
 											<th>제목</th>
-											<th>내용</th>
-											<th>긍부정결과</th>
+											<th>긍정 부정뉴스 구분</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -238,10 +238,10 @@ body {
 								<table id="Transaction_details1" class="display">
 									<thead>
 										<tr>
+											<th>뉴스번호</th>
 											<th>날짜</th>
 											<th>제목</th>
-											<th>내용</th>
-											<th>긍부정결과</th>
+											<th>긍정 부정뉴스 구분</th>
 										</tr>
 									</thead>
 									<tbody>

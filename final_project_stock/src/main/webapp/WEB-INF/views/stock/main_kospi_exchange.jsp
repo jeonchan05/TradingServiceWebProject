@@ -36,7 +36,6 @@ h2, h4 {
 #kospichart {
 	margin: auto;
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-	
 }
 
 #exchangechart {
@@ -73,8 +72,9 @@ body {
 	z-index: 600;
 	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
-.imagemoney{
-margin-top: 13px;
+
+.imagemoney {
+	margin-top: 13px;
 }
 
 @media ( max-width : 991.98px) {
@@ -116,8 +116,8 @@ margin-top: 13px;
 						class="list-group-item list-group-item-action py-2 ripple"> <i
 						class="fa-solid fa-chart-column me-3"></i><span>종목 차트</span>
 					</a> <a href="/rainbowcompany/login/accountinfo"
-						class="list-group-item list-group-item-action py-2 ripple"> <i
-						class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
+						class="list-group-item list-group-item-action py-2 ripple">
+						<i class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
 					</a><a href="/rainbowcompany/login/profit&losschart"
 						class="list-group-item list-group-item-action py-2 ripple"><i
 						class="fas fa-chart-line fa-fw me-3"></i><span>AI 추전 투자 차트</span></a>
@@ -167,13 +167,14 @@ margin-top: 13px;
 											<h2 class="h1 mb-0 me-4" id="exchangeusd">로딩중...</h2>
 										</div>
 										<div>
-											<h4>USD-KRW </h4>
+											<h4>USD-KRW</h4>
 											<h4>환율 (초)</h4>
 											<p class="mb-0"></p>
 										</div>
 									</div>
 									<div class="align-self-center"></div>
-									<img src="/images/won.png" height="45" alt="won" class="imagemoney"/>
+									<img src="/images/won.png" height="45" alt="won"
+										class="imagemoney" />
 								</div>
 							</div>
 						</div>
@@ -193,7 +194,8 @@ margin-top: 13px;
 										</div>
 									</div>
 									<div class="align-self-center"></div>
-									<img src="/images/cny.png" height="45" alt="cny" class="imagemoney"/>
+									<img src="/images/cny.png" height="45" alt="cny"
+										class="imagemoney" />
 								</div>
 							</div>
 						</div>

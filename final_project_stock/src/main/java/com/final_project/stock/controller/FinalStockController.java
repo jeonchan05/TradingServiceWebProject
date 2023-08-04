@@ -24,13 +24,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.final_project.stock.dao.AccountInfoDao;
 import com.final_project.stock.dao.NewsDao;
+import com.final_project.stock.dao.PredictDao;
 import com.final_project.stock.dao.StockPriceDao;
 import com.final_project.stock.dao.TradeHistoryDao;
 import com.final_project.stock.dao.UserTableDao;
 import com.final_project.stock.dto.AccountInfoDto;
 import com.final_project.stock.dto.EmartNewsDto;
+import com.final_project.stock.dto.EmartPredictDto;
 import com.final_project.stock.dto.ShinFoodNewsDto;
+import com.final_project.stock.dto.ShinFoodPredictDto;
 import com.final_project.stock.dto.ShinNewsDto;
+import com.final_project.stock.dto.ShinPredictDto;
 import com.final_project.stock.dto.StockPriceEmartDto;
 import com.final_project.stock.dto.StockPriceShinDto;
 import com.final_project.stock.dto.StockPriceShinFood;
@@ -120,7 +124,20 @@ public class FinalStockController {
 	}
 		
 	@GetMapping("/login/profit&losschart")
-	public String main_profit_loss_chart() {
+	public String main_profit_loss_chart(Model model) {
+		PredictDao predictDao = new PredictDao();
+		try {
+			ShinPredictDto shinpredict = predictDao.shinPredRecent();
+			ShinFoodPredictDto shinfoodpredcit =  predictDao.shinFoodPredRecent();
+			EmartPredictDto emartpredcit = predictDao.emartPredRecent();
+			model.addAttribute("shinpredict", shinpredict);
+			model.addAttribute("shinfoodpredcit", shinfoodpredcit);
+			model.addAttribute("emartpredcit", emartpredcit);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "main_profit_loss_chart";
 	}
 	

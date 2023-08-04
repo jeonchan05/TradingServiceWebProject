@@ -228,7 +228,6 @@ body {
 											<th>체결시간</th>
 											<th>주문번호</th>
 											<th>종목명</th>
-											<th>주문가</th>
 											<th>체결가</th>
 											<th>체결수량</th>
 											<th>주문유형</th>
@@ -240,7 +239,6 @@ body {
 											<td id="excepttime">없음</td>
 											<td id="ordernum">없음</td>
 											<td id="stockname">없음</td>
-											<td id="orderprice">없음</td>
 											<td id="exceptprice">없음</td>
 											<td id="exceptqty">없음</td>
 											<td id="gubun">없음</td>
@@ -326,7 +324,7 @@ const profitRate = document.getElementById('profitrate');
 
 const profitRateValue = parseFloat(${profitrate});
 
-if (profitRateValue < 0) {
+if (profitRateValue <= 0) {
   profitRate.classList.add('blue-text');
 } else {
   profitRate.classList.add('red-text');
@@ -336,7 +334,7 @@ if (profitRateValue < 0) {
 <script type="text/javascript">
 const investmentincome = document.getElementById('investmentincome');
 
-const investmentincomevalue = parseInt(${investmentincome});
+const investmentincomevalue = parseFloat(${investmentincome});
 
 if (investmentincomevalue < 0) {
 	investmentincome.classList.add('blue-text');

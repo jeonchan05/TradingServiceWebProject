@@ -21,4 +21,5 @@ percentstompClient.connect({}, function (frame) {
         const total = parseFloat(data)
         document.getElementById('total').innerText = total; 
     });
+    
 });

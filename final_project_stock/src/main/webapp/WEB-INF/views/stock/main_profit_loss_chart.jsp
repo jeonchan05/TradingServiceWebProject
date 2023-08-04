@@ -128,7 +128,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h5 mb-0 me-4">AI 3개 종목 (매수, 매도, 홀드) 추천</h2>
+											<h2 class="h5 mb-0 me-4">AI 3개 종목 (매수, 매도, 관망) 추천</h2>
 										</div>
 										<div>
 											<h4></h4>
@@ -146,7 +146,49 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinpredict">로딩중...</h2>
+											<h2 class="h5 mb-0 me-4" id="shintime">${shinpredict.shinpreddate} 기준</h2>
+										</div>
+									</div>
+									<div class="align-self-center"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex justify-content-between p-md-1">
+									<div class="d-flex flex-row">
+										<div class="align-self-center">
+											<h2 class="h5 mb-0 me-4" id="shinfoodtime">${shinfoodpredcit.shinfoodpreddate} 기준</h2>
+										</div>
+									</div>
+									<div class="align-self-center"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex justify-content-between p-md-1">
+									<div class="d-flex flex-row">
+										<div class="align-self-center">
+											<h2 class="h5 mb-0 me-4" id="emarttime">${emartpredcit.emartpreddate} 기준</h2>
+										</div>
+									</div>
+									<div class="align-self-center"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-12 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex justify-content-between p-md-1">
+									<div class="d-flex flex-row">
+										<div class="align-self-center">
+											<h2 class="h1 mb-0 me-4" id="shinpredict">${shinpredict.shinpredresult} 추천</h2>
 										</div>
 										<div>
 											<h4>신세계 예측</h4>
@@ -164,7 +206,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="shinfoodpredict">로딩중...</h2>
+											<h2 class="h1 mb-0 me-4" id="shinfoodpredict">${shinfoodpredcit.shinfoodpredresult} 추천</h2>
 										</div>
 										<div>
 											<h4>신세계푸드 예측</h4>
@@ -182,7 +224,7 @@ body {
 								<div class="d-flex justify-content-between p-md-1">
 									<div class="d-flex flex-row">
 										<div class="align-self-center">
-											<h2 class="h1 mb-0 me-4" id="emartpredict">로딩중...</h2>
+											<h2 class="h1 mb-0 me-4" id="emartpredict">${emartpredcit.emartpredresult} 추천</h2>
 										</div>
 										<div>
 											<h4>이마트 예측</h4>

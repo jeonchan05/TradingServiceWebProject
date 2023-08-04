@@ -22,10 +22,6 @@ stompClientlive.connect({}, function(frame) {
         document.getElementById('stockname').innerText = data;
     });
 
-    stompClientlive.subscribe('/stock/orderprice', function(message) {
-        const data = JSON.parse(message.body);
-        document.getElementById('orderprice').innerText = data;
-    });
     stompClientlive.subscribe('/stock/exceptprice', function(message) {
         const data = JSON.parse(message.body);
         document.getElementById('exceptprice').innerText = data;
