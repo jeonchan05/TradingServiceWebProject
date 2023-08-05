@@ -36,6 +36,9 @@
 <script src="/js/accountinfo.js"></script>
 <script src="/js/livehistory.js"></script>
 <style type="text/css">
+#reload{
+margin-left: 2%
+}
 .blue-text {
 	color: blue;
 }
@@ -54,12 +57,6 @@ body {
 	}
 }
 
-#refresh {
-	float: left;
-	margin-left: 23px;
-}
-
-/* Sidebar */
 .sidebar {
 	position: fixed;
 	top: 0;
@@ -116,7 +113,7 @@ body {
 					</a> <a href="/rainbowcompany/login/stockchart"
 						class="list-group-item list-group-item-action py-2 ripple"> <i
 						class="fa-solid fa-chart-column me-3"></i><span>종목 차트</span>
-					</a> <a href="/rainbowcompany/login/accountinfo"
+					</a> <a href="/rainbowcompany/login/accountverify"
 						class="list-group-item list-group-item-action py-2 ripple active">
 						<i class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
 					</a><a href="/rainbowcompany/login/profit&losschart"
@@ -142,7 +139,7 @@ body {
 	<!--Main layout-->
 	<main style="margin-top: 58px;">
 		<div class="container pt-4">
-			<section class="mb-4">
+			<section class="mb-4 mt-4">
 				<div class="card">
 					<div class="card-header text-center py-3">
 						<h5 class="mb-0 text-center">
@@ -156,7 +153,7 @@ body {
 									<tr>
 										<th>사용자 정보</th>
 										<th>계좌번호</th>
-										<th>잔고평가금액</th>
+										<th>평가금액</th>
 										<th>투자손익금액</th>
 										<th>예수금</th>
 										<th>D+1예수금</th>
@@ -259,6 +256,7 @@ body {
 						</h5>
 					</div>
 					<div class="card-body">
+					<button id="reload"onClick="window.location.reload()">매매내역 새로고침<i class="fa-solid fa-rotate"></i></button>
 						<div class="table-responsive">
 							<div style="width: 1200px; margin: 40px auto 0">
 								<table id="Transaction_details" class="display">
@@ -300,25 +298,10 @@ body {
 
 </body>
 <%@include file="footer.jsp"%>
+${msg}
 <!-- MDB -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
-<script type="text/javascript">
-let password
-let count = 0
-pw = '<%=(String) session.getAttribute("userpassword")%>';
-	while (true) {
-		password = prompt('비밀번호 입력');
-		if (password == pw) {
-			alert('인증되었습니다.');
-			break;
-		} else {
-			alert('잘못 입력하셨습니다.');
-			window.history.back();
-			break;
-		}
-	}
-</script>
 <script type="text/javascript">
 const profitRate = document.getElementById('profitrate');
 

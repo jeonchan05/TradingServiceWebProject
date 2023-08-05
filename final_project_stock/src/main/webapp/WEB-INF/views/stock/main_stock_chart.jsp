@@ -90,7 +90,7 @@ h2, h4 {
 					</a> <a href="/rainbowcompany/login/stockchart"
 						class="list-group-item list-group-item-action py-2 ripple active">
 						<i class="fa-solid fa-chart-column me-3"></i><span>종목 차트</span>
-					</a> <a href="/rainbowcompany/login/accountinfo"
+					</a> <a href="/rainbowcompany/login/accountverify"
 						class="list-group-item list-group-item-action py-2 ripple"> <i
 						class="fa-solid fa-address-card me-3"></i><span>계좌정보</span>
 					</a><a href="/rainbowcompany/login/profit&losschart"
@@ -116,7 +116,7 @@ h2, h4 {
 	<!--Main layout-->
 	<main style="margin-top: 58px;">
 		<div class="container pt-4">
-			<section>
+			<section class="mt-4">
 				<div class="row">
 					<div class="col-3xl-6 col-md-12 mb-4">
 						<div class="card">

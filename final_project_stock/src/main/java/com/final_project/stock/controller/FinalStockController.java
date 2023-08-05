@@ -42,26 +42,25 @@ import com.final_project.stock.dto.TradingHistoryDto;
 import com.final_project.stock.dto.UserTableDto;
 import com.final_project.stock.service.UserTableService;
 
-
 @Controller
 @RequestMapping("/rainbowcompany")
 public class FinalStockController {
-	
+
 	UserTableDao usertableDao;
+
 	@Autowired
 	public FinalStockController(UserTableDao usertableDao) {
 		this.usertableDao = usertableDao;
 	}
 
-	
 	@Value("${stock.imgdir}")
 	String fdir;
 
-	
 	@GetMapping("/main")
 	public String loginbeforemainpage() {
 		return "loginbefore";
 	}
+
 	@GetMapping("/login/kospi&exchange")
 	public String main_kospi_exchange(Model model, HttpServletRequest request,
 			@RequestParam(defaultValue = "/") String redirectURL) {
@@ -78,14 +77,13 @@ public class FinalStockController {
 		return "main_kospi_exchange";
 	}
 
-	
 	@GetMapping("/login/stockchart")
 	public String main_stock_chart(Model model) {
 		StockPriceDao stockPriceDao = new StockPriceDao();
 		try {
-			StockPriceShinDto shinPrice  = stockPriceDao.searchShinRecent();
+			StockPriceShinDto shinPrice = stockPriceDao.searchShinRecent();
 			StockPriceShinFood shinFoodPrice = stockPriceDao.searchShinFoodRecent();
-			StockPriceEmartDto EmartPrice =  stockPriceDao.searchEmartRecent();
+			StockPriceEmartDto EmartPrice = stockPriceDao.searchEmartRecent();
 			model.addAttribute("shinPrice", shinPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
 			model.addAttribute("shinFoodPrice", shinFoodPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
 			model.addAttribute("EmartPrice", EmartPrice.toString().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
@@ -94,21 +92,45 @@ public class FinalStockController {
 		}
 		return "main_stock_chart";
 	}
-	
-	@GetMapping("/login/accountinfo")
+
+	@GetMapping("/login/accountverify")
+	public String accountverify() {
+		return "accountinfoverify";
+	}
+
+	@PostMapping("/verify")
+	public String verify(@RequestParam(value = "userpassword", required = false) String password,
+			HttpServletRequest request, RedirectAttributes red) {
+		HttpSession session = request.getSession();
+		String userpassword = (String) session.getAttribute("userpassword");
+		if (userpassword.equals(password)) {
+			session.setAttribute("verifypassword", password);
+			red.addFlashAttribute("msg", "<script>alert('인증되었습니다.');</script>");
+			return "redirect:/rainbowcompany/login/pw/accountinfo";
+		}
+		else {
+			red.addFlashAttribute("msg", "<script>alert('비밀번호를 잘못 입력하셨습니다. 다시 입력해주세요.');</script>");
+			return "redirect:/rainbowcompany/login/accountverify";
+		}
+
+	}
+
+	@GetMapping("/login/pw/accountinfo")
 	public String main_account_info(Model model) {
 		TradeHistoryDao tradingHistroyDao = new TradeHistoryDao();
 		AccountInfoDao accountInfo = new AccountInfoDao();
 		try {
 			ArrayList<TradingHistoryDto> AllHistoryList = tradingHistroyDao.tradingAllHistory();
 			AccountInfoDto AccountInfo = accountInfo.getAccountInfo();
-			String balanceevaluationamount = AccountInfo.getBalanceevaluationamount().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			String balanceevaluationamount = AccountInfo.getBalanceevaluationamount()
+					.replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
 			String investmentincome = AccountInfo.getInvestmentincome().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
 			String jejus = AccountInfo.getJejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
 			String d1jejus = AccountInfo.getD1jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
-			String d2jejus = AccountInfo.getD2jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");;
+			String d2jejus = AccountInfo.getD2jejus().replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",");
+			;
 			String profitrate = AccountInfo.getProfitrate();
-			String profitrate1 = profitrate.substring(0,4);
+			String profitrate1 = profitrate.substring(0, 4);
 			model.addAttribute("AllTradingHistory", AllHistoryList);
 			model.addAttribute("balanceevaluationamount", balanceevaluationamount);
 			model.addAttribute("investmentincome", investmentincome);
@@ -116,31 +138,31 @@ public class FinalStockController {
 			model.addAttribute("d1jejus", d1jejus);
 			model.addAttribute("d2jejus", d2jejus);
 			model.addAttribute("profitrate", profitrate1);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "main_account_info";
 	}
-		
+
 	@GetMapping("/login/profit&losschart")
 	public String main_profit_loss_chart(Model model) {
 		PredictDao predictDao = new PredictDao();
 		try {
 			ShinPredictDto shinpredict = predictDao.shinPredRecent();
-			ShinFoodPredictDto shinfoodpredcit =  predictDao.shinFoodPredRecent();
+			ShinFoodPredictDto shinfoodpredcit = predictDao.shinFoodPredRecent();
 			EmartPredictDto emartpredcit = predictDao.emartPredRecent();
 			model.addAttribute("shinpredict", shinpredict);
 			model.addAttribute("shinfoodpredcit", shinfoodpredcit);
 			model.addAttribute("emartpredcit", emartpredcit);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return "main_profit_loss_chart";
 	}
-	
+
 	@GetMapping("/login/news")
 	public String main_news_info(Model model) {
 		NewsDao newsDao = new NewsDao();
@@ -148,7 +170,7 @@ public class FinalStockController {
 			ArrayList<EmartNewsDto> emartNewsList = newsDao.EmartNews();
 			ArrayList<ShinNewsDto> shinNewsList = newsDao.ShinNews();
 			ArrayList<ShinFoodNewsDto> shinFoodNewsList = newsDao.ShinFoodNews();
-			
+
 			model.addAttribute("emartNews", emartNewsList);
 			model.addAttribute("shinNews", shinNewsList);
 			model.addAttribute("shinFoodNews", shinFoodNewsList);
@@ -157,26 +179,27 @@ public class FinalStockController {
 		}
 		return "main_news_info";
 	}
-	
+
 	@GetMapping("/login/siteintroduce")
 	public String main_site_introduce() {
 		return "main_site_introduce";
 	}
-	
+
 	@GetMapping("/signin")
 	public String signin() {
 		return "signin";
 	}
-	
+
 	@GetMapping("/signup")
 	public String signup() {
 		return "signup";
 	}
+
 	@GetMapping("/test")
 	public String test() {
 		return "testchart";
 	}
-	
+
 	@GetMapping("/login/emartnews/{emartnum}")
 	public String getEmartNews(@PathVariable int emartnum, Model model) {
 		NewsDao newsDao = new NewsDao();
@@ -188,7 +211,7 @@ public class FinalStockController {
 		}
 		return "emartnewsdetails";
 	}
-	
+
 	@GetMapping("/login/shinnews/{shinnum}")
 	public String getShinnumNews(@PathVariable int shinnum, Model model) {
 		NewsDao newsDao = new NewsDao();
@@ -200,7 +223,7 @@ public class FinalStockController {
 		}
 		return "shinnewsdetails";
 	}
-	
+
 	@GetMapping("/login/shinfoodnews/{shinfoodnum}")
 	public String getShinfoodnumNews(@PathVariable int shinfoodnum, Model model) {
 		NewsDao newsDao = new NewsDao();
@@ -212,8 +235,7 @@ public class FinalStockController {
 		}
 		return "shinfoodnewsdetails";
 	}
-	
-	
+
 	@PostMapping("/up")
 	public String signup(@ModelAttribute UserTableDto usertableDto, Model model,
 			@RequestParam("file") MultipartFile file, RedirectAttributes red) {
@@ -235,7 +257,7 @@ public class FinalStockController {
 
 		return "redirect:/rainbowcompany/signin";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/idcheck", method = RequestMethod.POST)
 	public int idCheck(@RequestParam("userid") String userid) {
@@ -254,7 +276,7 @@ public class FinalStockController {
 		}
 		return check;
 	}
-	
+
 	@PostMapping("/in")
 	public String signin(@RequestParam(value = "userid", required = false) String userid,
 			@RequestParam(value = "userpassword", required = false) String userpassword, Model model,
@@ -282,12 +304,12 @@ public class FinalStockController {
 		return "redirect:/rainbowcompany/login/kospi&exchange";
 
 	}
-	
+
 	@GetMapping("/removesession")
 	public String removesession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("userid");
 		return "redirect:/rainbowcompany/main";
 	}
-	
+
 }
