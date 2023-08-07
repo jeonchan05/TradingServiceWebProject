@@ -16,16 +16,16 @@ stompClient.connect({}, function (frame) {
     stompClient.subscribe('/stock/004170timepv', function (message) {
         const data = message.body;
         const shintime = data
-        document.getElementById('shintime').innerText = shintime; 
+        document.getElementById('shintime').innerText = shintime + " 기준"; 
     });
     stompClient.subscribe('/stock/031440timepv', function (message) {
         const data = message.body;
         const shinfoodtime = data
-        document.getElementById('shinfoodtime').innerText = shinfoodtime; 
+        document.getElementById('shinfoodtime').innerText = shinfoodtime + " 기준"; 
     });
     stompClient.subscribe('/stock/139480timepv', function (message) {
         const data = message.body;
         const emarttime = data
-        document.getElementById('emarttime').innerText = emarttime; 
+        document.getElementById('emarttime').innerText = emarttime + " 기준"; 
     });
 });

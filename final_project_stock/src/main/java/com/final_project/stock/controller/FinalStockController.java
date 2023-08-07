@@ -309,6 +309,7 @@ public class FinalStockController {
 	public String removesession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("userid");
+		session.removeAttribute("verifypassword");
 		return "redirect:/rainbowcompany/main";
 	}
 

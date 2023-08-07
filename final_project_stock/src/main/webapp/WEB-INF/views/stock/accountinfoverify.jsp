@@ -132,7 +132,7 @@ body {
 
 								<div class="row d-flex justify-content-center">
 									<div class="col-lg-8">
-										<h2 class="fw-bold mb-5">계좌정보탭 이용 비밀번호 재입력</h2>
+										<h2 class="fw-bold mb-5">계좌정보 이용 비밀번호 입력</h2>
 										<form method="post" action="/rainbowcompany/verify">
 											<div class="form-outline mb-4">
 												<input type="password" name="userpassword"
